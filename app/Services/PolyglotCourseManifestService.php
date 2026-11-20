@@ -87,10 +87,14 @@ class PolyglotCourseManifestService
             return $this->emptyManifest('');
         }
 
-        $lessons = SavedGrammarTest::query()
-            ->with('questionLinks')
+        $tests = SavedGrammarTest::query()
             ->get()
-            ->filter(fn (SavedGrammarTest $test) => $this->matchesCourse($test, $courseSlug))
+            ->filter(fn (SavedGrammarTest $test) => $this->matchesCourse($test, $courseSlug));
+
+        // Eligibility may use the linked question UUIDs; load them together for this course only.
+        $tests->load('questionLinks');
+
+        $lessons = $tests
             ->filter(fn (SavedGrammarTest $test) => ComposeModeEligibility::isAvailableForTest($test))
             ->map(fn (SavedGrammarTest $test) => $this->normalizeLesson($test))
             ->filter()
