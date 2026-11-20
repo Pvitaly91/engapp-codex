@@ -267,20 +267,24 @@ class WordsTestController extends Controller
 
         $translation = optional($word->translates->first())->translation ?? '';
 
-        $otherWords = $this->wordsQuery($translationLang)
-            ->where('id', '!=', $wordId)
-            ->inRandomOrder()
-            ->take(4)
-            ->get();
+        $options = [];
+        if ($difficulty === 'easy') {
+            $otherWords = $this->wordsQuery($translationLang)
+                ->without('tags')
+                ->where('id', '!=', $wordId)
+                ->inRandomOrder()
+                ->take(4)
+                ->get();
 
-        $options = $otherWords
-            ->map(fn ($w) => optional($w->translates->first())->translation ?? '')
-            ->filter()
-            ->push($translation)
-            ->unique()
-            ->shuffle()
-            ->values()
-            ->all();
+            $options = $otherWords
+                ->map(fn ($w) => optional($w->translates->first())->translation ?? '')
+                ->filter()
+                ->push($translation)
+                ->unique()
+                ->shuffle()
+                ->values()
+                ->all();
+        }
 
         return [
             'word_id' => $word->id,
