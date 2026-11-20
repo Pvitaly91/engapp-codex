@@ -700,7 +700,11 @@ final class TheoryNativeContentRelease
             foreach ($target['after']['page']['blocks'] as $slot => $source) {
                 $matches = $uk->where('uuid', M26DetailPackage::uuid($target['identity'], $source, $slot + 1))->values();
                 if ($matches->count() !== 1 || !$matches[0] instanceof TextBlock
-                    || $this->binding($matches[0], json_decode($matches[0]->body, true, flags: JSON_THROW_ON_ERROR)) === null) { return $page; }
+                    || $this->binding(
+                        $matches[0],
+                        json_decode($matches[0]->body, true, flags: JSON_THROW_ON_ERROR),
+                        [$patch, $master],
+                    ) === null) { return $page; }
             }
             $subtitles = $uk->where('type', 'subtitle')->values();
             if ($subtitles->count() !== 1 || !$this->exactSubtitle($subtitles[0], $target, $old)) { return $page; }

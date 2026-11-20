@@ -3,14 +3,18 @@
 namespace Tests\Feature;
 
 use App\Http\Controllers\TestJsV2Controller;
+use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\TextBlock;
 use App\Support\M26DetailPackage;
+use App\Support\M69AdjectivesAdverbs;
 use App\Support\M85VerbToBe;
 use App\Support\TheoryNativeContentRelease;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use ReflectionMethod;
 use Tests\Support\IsolatedTestEnvironment;
@@ -84,9 +88,10 @@ class ComposeTheoryNativeContentTest extends TestCase
         }
     }
 
-    public function test_corrupt_private_artifacts_do_not_reuse_previous_validation_in_either_entry_point(): void
+    public function test_corrupt_private_artifacts_do_not_reuse_previous_validation(): void
     {
-        [, $target] = $this->presentFormsSources();
+        [$before, $target] = $this->presentFormsSources();
+        $page = $this->boundCoursePage($before, $target);
         $block = $this->boundBlock($target, $target['after']['page']['blocks'][1], 2);
         $data = json_decode($block->body, true, flags: JSON_THROW_ON_ERROR);
         [$profile, $patchCopy] = $this->copyPrivateProfile();
@@ -98,10 +103,15 @@ class ComposeTheoryNativeContentTest extends TestCase
         $presented = $release->presentation($block, $data);
         $this->assertSame($target['identity'], $presented['m42_native_design']['identity'] ?? null);
         $this->assertNotSame($block, $release->preserveExcludedTextBlock($block, 'standalone_test'));
+        $restoredPage = $release->preserveCoursePage($page);
+        $this->assertInstanceOf(Page::class, $restoredPage);
+        $this->assertNotSame($page, $restoredPage);
+        $this->assertSame($before['page']['blocks'][1]['body'], $restoredPage->textBlocks->firstWhere('uuid', $block->uuid)->body);
 
         // Only this test's private copy is changed; a previously checked source must not be trusted now.
         $this->assertNotFalse(file_put_contents(base_path($patchCopy), $bytes."\n"));
         $this->assertSame($block, $release->preserveExcludedTextBlock($block, 'standalone_test'));
+        $this->assertSame($page, $release->preserveCoursePage($page));
         $this->assertNull($release->presentation($block, $data));
 
         // Even a matching checksum is insufficient if the semantic package fails validation.
@@ -113,10 +123,12 @@ class ComposeTheoryNativeContentTest extends TestCase
         $invalidRelease = new TheoryNativeContentRelease($profile);
         $this->assertSame($invalid, file_get_contents(base_path($patchCopy)));
         $this->assertSame($block, $invalidRelease->preserveExcludedTextBlock($block, 'standalone_test'));
+        $this->assertSame($page, $invalidRelease->preserveCoursePage($page));
         $this->assertNull($invalidRelease->presentation($block, $data));
 
         $this->assertNotFalse(file_put_contents(base_path($patchCopy), $bytes));
         $this->assertSame($presented, $release->presentation($block, $data));
+        $this->assertSame($restoredPage->toArray(), $release->preserveCoursePage($page)->toArray());
     }
 
     public function test_compose_payload_keeps_ordered_pivot_priority_deduplication_and_legacy_fallback(): void
@@ -159,6 +171,150 @@ class ComposeTheoryNativeContentTest extends TestCase
         $this->assertSame($target['after']['page']['blocks'][1]['body'], $native->body);
     }
 
+    public function test_course_page_restores_all_original_blocks_in_order_on_independent_clones(): void
+    {
+        [$before, $target] = $this->presentFormsSources();
+        $page = $this->boundCoursePage($before, $target);
+        $foreign = new TextBlock(['type' => 'box', 'uuid' => (string) Str::uuid(), 'locale' => 'en', 'sort_order' => 1000]);
+        $page->textBlocks->prepend($foreign);
+        $inputBlocks = $page->textBlocks;
+        $inputRaw = $inputBlocks->map->getRawOriginal()->all();
+        $inputCurrent = $inputBlocks->map->getAttributes()->all();
+        $attributes = $page->getAttributes();
+        $copy = M85VerbToBe::preserveCoursePage($page);
+
+        $this->assertInstanceOf(Page::class, $copy);
+        $this->assertNotSame($page, $copy);
+        $this->assertNotSame($inputBlocks, $copy->textBlocks);
+        $this->assertSame(array_replace($attributes, ['text' => $before['page']['subtitle_text']]), $copy->getAttributes());
+        $this->assertSame($attributes, $page->getAttributes());
+        $this->assertSame($attributes, $page->getRawOriginal());
+        $this->assertSame($inputBlocks, $page->textBlocks);
+        $this->assertSame($inputCurrent, $inputBlocks->map->getAttributes()->all());
+        $this->assertSame($inputRaw, $inputBlocks->map->getRawOriginal()->all());
+
+        $restored = $copy->textBlocks;
+        $this->assertSame([...range(0, count($before['page']['blocks'])), 1000], $restored->pluck('sort_order')->all());
+        $this->assertSame($foreign, $restored->last());
+        $subtitle = $restored->first();
+        $this->assertSame('subtitle', $subtitle->type);
+        $this->assertSame($before['page']['subtitle_html'], $subtitle->body);
+        $this->assertNotSame($inputBlocks->firstWhere('type', 'subtitle'), $subtitle);
+
+        foreach ($before['page']['blocks'] as $slot => $source) {
+            $new = $restored[$slot + 1];
+            $original = $inputBlocks->firstWhere('sort_order', $slot + 1);
+            $this->assertSame($original->uuid, $new->uuid);
+            $this->assertNotSame($original, $new);
+            foreach (['type', 'column', 'heading', 'level', 'css_class', 'body'] as $field) {
+                $this->assertSame($source[$field] ?? null, $new->$field, $field);
+            }
+        }
+    }
+
+    public function test_course_page_requires_both_exact_original_and_current_page_attributes(): void
+    {
+        [$before, $target] = $this->presentFormsSources();
+        $page = $this->boundCoursePage($before, $target);
+
+        foreach (['id' => -1, 'page_category_id' => -1, 'seeder' => 'ForeignPageSeeder', 'slug' => 'wrong-slug',
+            'title' => 'Wrong title', 'type' => 'non-theory', 'text' => 'Unexpected introduction'] as $field => $wrong) {
+            $rawMismatch = clone $page;
+            $rawMismatch->setRawAttributes(array_replace($page->getAttributes(), [$field => $wrong]), true);
+            $rawMismatch->setAttribute($field, $page->getAttribute($field));
+            $this->assertSame($rawMismatch, M85VerbToBe::preserveCoursePage($rawMismatch), 'Wrong original '.$field);
+
+            $dirtyMismatch = clone $page;
+            $dirtyMismatch->setAttribute($field, $wrong);
+            $this->assertSame($dirtyMismatch, M85VerbToBe::preserveCoursePage($dirtyMismatch), 'Wrong current '.$field);
+        }
+
+        $withoutRelation = clone $page;
+        $withoutRelation->unsetRelation('textBlocks');
+        $this->assertSame($withoutRelation, M85VerbToBe::preserveCoursePage($withoutRelation));
+        $this->assertFalse($withoutRelation->relationLoaded('textBlocks'));
+        $foreignPage = clone $page;
+        $foreignPage->setRawAttributes(array_replace($page->getAttributes(), ['seeder' => 'ForeignPageSeeder']), true);
+        $this->assertSame($foreignPage, M85VerbToBe::preserveCoursePage($foreignPage));
+        $this->assertNull(M85VerbToBe::preserveCoursePage(null));
+    }
+
+    public function test_course_page_rejects_missing_duplicate_and_changed_blocks_without_partial_restoration(): void
+    {
+        [$before, $target] = $this->presentFormsSources();
+        $page = $this->boundCoursePage($before, $target);
+        $blocks = $page->textBlocks;
+        $last = $blocks->firstWhere('sort_order', count($target['after']['page']['blocks']));
+        $changedLast = clone $last;
+        $changedLast->body .= "\n"; // Same decoded data, but the stored artifact binding is byte exact.
+        $subtitle = $blocks->firstWhere('type', 'subtitle');
+        $wrongSubtitle = clone $subtitle;
+        $wrongSubtitle->heading = 'Unexpected subtitle heading';
+
+        foreach ([
+            'missing native block' => $blocks->reject(fn (TextBlock $block) => $block === $last),
+            'duplicated UUID at unchanged block count' => $blocks->map(fn (TextBlock $block) => $block === $last ? clone $blocks->firstWhere('sort_order', 1) : $block),
+            'changed last native block' => $blocks->map(fn (TextBlock $block) => $block === $last ? $changedLast : $block),
+            'invalid subtitle' => $blocks->map(fn (TextBlock $block) => $block === $subtitle ? $wrongSubtitle : $block),
+        ] as $case => $corrupt) {
+            $broken = clone $page;
+            $broken->setRelation('textBlocks', $corrupt->values());
+            $input = $broken->textBlocks;
+            $attributes = $input->map->getAttributes()->all();
+            $this->assertSame($broken, M85VerbToBe::preserveCoursePage($broken), $case);
+            $this->assertSame($input, $broken->textBlocks);
+            $this->assertSame($attributes, $broken->textBlocks->map->getAttributes()->all());
+        }
+    }
+
+    public function test_course_page_removes_the_added_subtitle_if_the_original_had_none(): void
+    {
+        [$before, $patch] = M69AdjectivesAdverbs::load();
+        $source = $before['targets'][2]['before'];
+        $target = $patch['targets'][2];
+        $page = $this->boundCoursePage($source, $target);
+        $this->assertArrayNotHasKey('subtitle_html', $source['page']);
+        $this->assertNotNull($page->textBlocks->firstWhere('type', 'subtitle'));
+
+        $copy = M69AdjectivesAdverbs::preserveCoursePage($page);
+
+        $this->assertInstanceOf(Page::class, $copy);
+        $this->assertNotSame($page, $copy);
+        $this->assertNull($copy->text);
+        $this->assertNull($copy->textBlocks->firstWhere('type', 'subtitle'));
+        $this->assertSame(M69AdjectivesAdverbs::EDING_CONTINUING_UUIDS, $copy->textBlocks->pluck('uuid')->all());
+        $this->assertSame(array_column($source['page']['blocks'], 'body'), $copy->textBlocks->pluck('body')->all());
+        $this->assertNotNull($page->textBlocks->firstWhere('type', 'subtitle'));
+    }
+
+    public function test_ukrainian_course_lesson_and_test_share_the_restored_page_without_persisting_it(): void
+    {
+        $this->rebuildComposeTestSchema();
+        config(['coming-soon.enabled' => false, 'tests.tech_info_enabled' => false]);
+        [$before, $target] = $this->presentFormsSources();
+        $page = $this->boundCoursePage($before, $target);
+        $root = PageCategory::create(['slug' => 'basic-grammar', 'title' => 'Основна граматика', 'language' => 'uk', 'type' => 'theory']);
+        PageCategory::forceCreate(['id' => $page->page_category_id, 'slug' => 'verb-to-be', 'title' => 'Verb to Be',
+            'language' => 'uk', 'type' => 'theory', 'parent_id' => $root->id]);
+        DB::table('pages')->insert($page->getAttributes());
+        DB::table('text_blocks')->insert($page->textBlocks->map->getAttributes()->all());
+
+        $url = 'http://gramlyze.loc/courses/english-grammar-theory/lesson/basic-grammar/verb-to-be/'.$page->slug;
+        $lesson = $this->get($url)->assertOk()->assertViewIs('courses.theory-lesson');
+        $quiz = $this->get($url.'/test?attempt=perf19-fixture')->assertOk()->assertViewIs('test-modes.theory-mixed');
+        $this->assertSame('uk', $lesson->viewData('locale'));
+        $this->assertSame($page->id, $lesson->viewData('lesson')['page_id']);
+        foreach ([$lesson, $quiz] as $response) {
+            $viewPage = $response->viewData('page');
+            $this->assertSame($before['page']['subtitle_text'], $viewPage->text);
+            $this->assertSame([
+                $before['page']['subtitle_html'], ...array_column($before['page']['blocks'], 'body'),
+            ], $viewPage->textBlocks->pluck('body')->all());
+        }
+        $this->assertSame($target['after']['page']['subtitle_text'], Page::findOrFail($page->id)->text);
+        $this->assertSame($target['after']['page']['subtitle_html'], TextBlock::where('page_id', $page->id)->where('type', 'subtitle')->firstOrFail()->body);
+    }
+
     private function presentFormsSources(): array
     {
         [$before, $patch] = M85VerbToBe::load();
@@ -175,6 +331,25 @@ class ComposeTheoryNativeContentTest extends TestCase
             'body' => $source['body'], 'type' => $source['type'], 'column' => $source['column'] ?? null,
             'heading' => $source['heading'] ?? null, 'level' => $source['level'] ?? null, 'css_class' => $source['css_class'] ?? null,
         ], true);
+    }
+
+    private function boundCoursePage(array $before, array $target): Page
+    {
+        $after = $target['after']['page'];
+        $page = (new Page)->setRawAttributes([
+            'id' => $target['page_binding']['id'], 'page_category_id' => $target['page_binding']['page_category_id'],
+            'seeder' => $target['identity'], 'slug' => $target['slug'], 'title' => $before['page']['title'],
+            'type' => 'theory', 'text' => $after['subtitle_text'],
+        ], true);
+        $blocks = [$this->boundBlock($target, [
+            'type' => 'subtitle', 'column' => 'header', 'level' => $before['page']['subtitle_level'] ?? null,
+            'uuid_key' => $before['page']['subtitle_uuid_key'] ?? 'subtitle', 'body' => $after['subtitle_html'],
+        ], 0)];
+        foreach ($after['blocks'] as $slot => $source) {
+            $blocks[] = $this->boundBlock($target, $source, $slot + 1);
+        }
+
+        return $page->setRelation('textBlocks', new Collection(array_reverse($blocks)));
     }
 
     private function copyPrivateProfile(): array
