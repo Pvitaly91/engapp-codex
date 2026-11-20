@@ -21,6 +21,8 @@ class PolyglotProgressService
     public const REQUIRED_AVERAGE = 4.5;
     public const MAX_DEBUG_ANSWER_COUNT = 10000;
 
+    private const ATTEMPT_STATS_CHUNK_SIZE = 1000;
+
     public function __construct(
         private PolyglotCourseManifestService $manifestService,
     ) {}
@@ -960,6 +962,16 @@ class PolyglotProgressService
 
     private function buildCourseProgressPayload(User $user, string $courseSlug, array $lessons, Collection $progressRows): array
     {
+        // Only exact lesson lookups that already have a progress row contribute stats.
+        // A nonempty collection comes from getCourseProgress() after the storage check.
+        $progressIds = [];
+        foreach ($lessons as $lesson) {
+            if ($row = $progressRows->get($lesson['slug'])) {
+                $progressIds[] = $row->id;
+            }
+        }
+        [$correctAttempts, $questionStats] = $this->batchLessonAttemptStats($user->id, $courseSlug, $progressIds);
+
         $lessonMap = [];
         $lessonProgressMap = [];
         $completedLessons = [];
@@ -976,7 +988,13 @@ class PolyglotProgressService
             $entry = $this->lessonEntryPayload($courseSlug, $lesson, $row, $isUnlocked, $isCompleted);
 
             $lessonMap[$slug] = $entry;
-            $lessonProgressMap[$slug] = $this->lessonProgressPayload($courseSlug, $lesson, $entry, $row);
+            $lessonProgressMap[$slug] = $this->lessonProgressPayload(
+                $courseSlug,
+                $lesson,
+                $entry,
+                $correctAttempts[$row?->id] ?? 0,
+                $questionStats[$row?->id] ?? []
+            );
 
             if ($isUnlocked) {
                 $unlockedLessons[] = $slug;
@@ -1053,7 +1071,8 @@ class PolyglotProgressService
         string $courseSlug,
         array $lesson,
         array $entry,
-        ?UserPolyglotLessonProgress $row
+        int $correctAttempts,
+        array $questionStats
     ): array {
         return [
             'version' => 3,
@@ -1065,8 +1084,8 @@ class PolyglotProgressService
                 $entry['last_100_average']
             ),
             'total_attempts' => $entry['answered_count'],
-            'correct_attempts' => $this->correctAttemptCount($courseSlug, $lesson['slug'], $row?->user_id),
-            'question_stats' => $this->questionStatsForLesson($courseSlug, $lesson['slug'], $row?->user_id),
+            'correct_attempts' => $correctAttempts,
+            'question_stats' => $questionStats,
             'lesson_completed' => $entry['is_completed'],
             'completed_at' => $entry['completed_at'],
             'last_seen_at' => $entry['updated_at'],
@@ -1080,64 +1099,96 @@ class PolyglotProgressService
         ];
     }
 
-    private function correctAttemptCount(string $courseSlug, string $lessonSlug, ?int $userId): int
+    private function batchLessonAttemptStats(?int $userId, string $courseSlug, array $progressIds): array
     {
-        if (! $userId || ! Schema::hasTable('user_polyglot_answer_attempts')) {
-            return 0;
+        if (! $userId || $progressIds === []) {
+            return [[], []];
         }
 
-        return UserPolyglotAnswerAttempt::query()
-            ->where('user_id', $userId)
-            ->where('course_slug', $courseSlug)
-            ->where('lesson_slug', $lessonSlug)
-            ->where(function ($query) {
-                $query->where('is_correct', true)
-                    ->orWhere('rating', '>=', self::REQUIRED_AVERAGE);
-            })
-            ->count();
-    }
-
-    private function questionStatsForLesson(string $courseSlug, string $lessonSlug, ?int $userId): array
-    {
-        if (! $userId || ! Schema::hasTable('user_polyglot_answer_attempts')) {
-            return [];
-        }
-
-        $stats = [];
+        // Match lesson slugs using the database's equality, as the original WHERE did.
+        // Group by progress ID so case/padding variants of attempt slugs cannot change PHP keys.
         $attempts = UserPolyglotAnswerAttempt::query()
-            ->where('user_id', $userId)
-            ->where('course_slug', $courseSlug)
-            ->where('lesson_slug', $lessonSlug)
-            ->whereNotNull('question_uuid')
-            ->orderBy('answered_at')
-            ->orderBy('id')
-            ->get(['question_uuid', 'rating', 'is_correct', 'answered_at']);
+            ->from('user_polyglot_answer_attempts as attempts')
+            ->join('user_polyglot_lesson_progress as progress', function ($join) {
+                $join->on('progress.user_id', '=', 'attempts.user_id')
+                    ->on('progress.course_slug', '=', 'attempts.course_slug')
+                    ->on('progress.lesson_slug', '=', 'attempts.lesson_slug');
+            })
+            ->where('attempts.user_id', $userId)
+            ->where('attempts.course_slug', $courseSlug)
+            ->whereIn('progress.id', $progressIds);
 
-        foreach ($attempts as $attempt) {
-            $uuid = trim((string) $attempt->question_uuid);
-            if ($uuid === '') {
-                continue;
+        // Preserve the original SQL criterion, including attempts with a null question UUID.
+        $correctCounts = (clone $attempts)
+            ->where(function ($query) {
+                $query->where('attempts.is_correct', true)
+                    ->orWhere('attempts.rating', '>=', self::REQUIRED_AVERAGE);
+            })
+            ->selectRaw('progress.id as progress_id, COUNT(*) as correct_attempts')
+            ->groupBy('progress.id')
+            ->toBase()
+            ->pluck('correct_attempts', 'progress_id')
+            ->map(fn ($count) => (int) $count)
+            ->all();
+
+        $history = $attempts->whereNotNull('attempts.question_uuid')
+            ->orderBy('attempts.answered_at')
+            ->orderBy('attempts.id')
+            ->limit(self::ATTEMPT_STATS_CHUNK_SIZE);
+        $questionStats = [];
+        $lastId = null;
+        $lastAnsweredAt = null;
+
+        // Bound buffered reads without OFFSET. answered_at is non-null in the attempt schema.
+        do {
+            $page = clone $history;
+            if ($lastId !== null) {
+                $page->where(function ($query) use ($lastAnsweredAt, $lastId) {
+                    $query->where('attempts.answered_at', '>', $lastAnsweredAt)
+                        ->orWhere(function ($tie) use ($lastAnsweredAt, $lastId) {
+                            $tie->where('attempts.answered_at', $lastAnsweredAt)
+                                ->where('attempts.id', '>', $lastId);
+                        });
+                });
             }
 
-            $stats[$uuid] ??= [
-                'uuid' => $uuid,
-                'shown' => 0,
-                'correct' => 0,
-                'incorrect' => 0,
-                'last_seen_at' => null,
-                'last_answered_at' => null,
-            ];
+            $batch = $page->get([
+                'progress.id as progress_id', 'attempts.id', 'attempts.question_uuid',
+                'attempts.rating', 'attempts.is_correct', 'attempts.answered_at',
+            ]);
+            foreach ($batch as $attempt) {
+                $uuid = trim((string) $attempt->question_uuid);
+                if ($uuid === '') {
+                    continue;
+                }
 
-            $isCorrect = $attempt->is_correct === true
-                || ((float) $attempt->rating) >= self::REQUIRED_AVERAGE;
+                $progressId = $attempt->progress_id;
+                $questionStats[$progressId][$uuid] ??= [
+                    'uuid' => $uuid,
+                    'shown' => 0,
+                    'correct' => 0,
+                    'incorrect' => 0,
+                    'last_seen_at' => null,
+                    'last_answered_at' => null,
+                ];
 
-            $stats[$uuid]['shown']++;
-            $stats[$uuid][$isCorrect ? 'correct' : 'incorrect']++;
-            $stats[$uuid]['last_seen_at'] = $attempt->answered_at?->toJSON();
-            $stats[$uuid]['last_answered_at'] = $attempt->answered_at?->toJSON();
-        }
+                $isCorrect = $attempt->is_correct === true
+                    || ((float) $attempt->rating) >= self::REQUIRED_AVERAGE;
+                $answeredAt = $attempt->answered_at?->toJSON();
 
-        return $stats;
+                $questionStats[$progressId][$uuid]['shown']++;
+                $questionStats[$progressId][$uuid][$isCorrect ? 'correct' : 'incorrect']++;
+                $questionStats[$progressId][$uuid]['last_seen_at'] = $answeredAt;
+                $questionStats[$progressId][$uuid]['last_answered_at'] = $answeredAt;
+            }
+
+            $hasNext = $batch->count() === self::ATTEMPT_STATS_CHUNK_SIZE;
+            $lastId = $batch->last()?->id;
+            $lastAnsweredAt = $batch->last()?->getRawOriginal('answered_at');
+            unset($batch);
+        } while ($hasNext);
+
+        return [$correctCounts, $questionStats];
     }
 
     private function syntheticRollingResults(int $count, ?float $average): array
