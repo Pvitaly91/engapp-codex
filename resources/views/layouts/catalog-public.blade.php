@@ -245,7 +245,7 @@
                             </div>
                         </a>
 
-                        <button @click="mobile = !mobile" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border xl:hidden surface-card-strong" aria-label="{{ __('public.nav.menu') }}">
+                        <button @click="mobile = !mobile; if (!mobile) $dispatch('site-search-mobile-closed')" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border xl:hidden surface-card-strong" aria-label="{{ __('public.nav.menu') }}">
                             <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
@@ -265,7 +265,7 @@
                     <div class="hidden items-center gap-3 xl:flex">
                         <div x-data="searchBox()" class="relative">
                             <form @submit.prevent="go">
-                                <input x-model="query" @input="autocomplete" @keydown.escape="open = false" type="search" placeholder="{{ __('public.search.placeholder') }}" class="w-72 rounded-2xl border px-4 py-3 text-sm font-medium shadow-sm outline-none transition focus:border-ocean focus:ring-2 focus:ring-blue-100 surface-card-strong">
+                                <input x-model="query" @input="autocomplete" @keydown.escape="close()" type="search" placeholder="{{ __('public.search.placeholder') }}" class="w-72 rounded-2xl border px-4 py-3 text-sm font-medium shadow-sm outline-none transition focus:border-ocean focus:ring-2 focus:ring-blue-100 surface-card-strong">
                             </form>
                             <div x-show="open" x-cloak x-transition class="absolute left-0 right-0 top-full z-30 mt-2 max-h-[min(28rem,calc(100vh-8rem))] overflow-y-auto overscroll-contain rounded-[22px] border shadow-card surface-card-strong">
                                 <template x-if="!results.length">
@@ -394,9 +394,9 @@
                     </nav>
 
                     <div class="grid gap-3 md:grid-cols-[1fr_auto_auto_auto]">
-                        <div x-data="searchBox()" class="relative">
+                        <div x-data="searchBox()" @site-search-mobile-closed.window="close()" class="relative">
                             <form @submit.prevent="go">
-                                <input x-model="query" @input="autocomplete" @keydown.escape="open = false" type="search" placeholder="{{ __('public.search.placeholder') }}" class="w-full rounded-2xl border px-4 py-3 text-sm font-medium outline-none transition focus:border-ocean focus:ring-2 focus:ring-blue-100 surface-card-strong">
+                                <input x-model="query" @input="autocomplete" @keydown.escape="close()" type="search" placeholder="{{ __('public.search.placeholder') }}" class="w-full rounded-2xl border px-4 py-3 text-sm font-medium outline-none transition focus:border-ocean focus:ring-2 focus:ring-blue-100 surface-card-strong">
                             </form>
                             <div x-show="open" x-cloak x-transition class="absolute left-0 right-0 top-full z-20 mt-2 max-h-[min(24rem,calc(100vh-10rem))] overflow-y-auto overscroll-contain rounded-[22px] border shadow-card surface-card-strong">
                                 <template x-for="item in results" :key="item.url">
@@ -644,13 +644,34 @@
         }
 
         function searchBox() {
+            const searchUrl = '{{ localized_route('site.search') }}';
+            let timer = null;
+            let controller = null;
+            let generation = 0;
+
             return {
                 query: '',
                 results: [],
                 open: false,
+                close() {
+                    generation++;
+                    if (timer !== null) {
+                        clearTimeout(timer);
+                        timer = null;
+                    }
+                    controller?.abort();
+                    controller = null;
+                    this.results = [];
+                    this.open = false;
+                },
+                destroy() {
+                    this.close();
+                },
                 go() {
-                    if (this.query.trim()) {
-                        window.location.href = '{{ localized_route('site.search') }}?q=' + encodeURIComponent(this.query.trim());
+                    const term = this.query.trim();
+                    this.close();
+                    if (term) {
+                        window.location.href = searchUrl + '?q=' + encodeURIComponent(term);
                     }
                 },
                 highlight(text) {
@@ -663,19 +684,48 @@
 
                     return safe.replace(regex, '<mark class="rounded bg-amber-200/80 px-1 text-slate-900">$1</mark>');
                 },
-                async autocomplete() {
-                    if (this.query.trim().length < 2) {
-                        this.results = [];
-                        this.open = false;
+                autocomplete() {
+                    const term = this.query.trim();
+                    this.close();
+                    if (term.length < 2) {
                         return;
                     }
 
-                    const response = await fetch('{{ localized_route('site.search') }}?q=' + encodeURIComponent(this.query.trim()), {
-                        headers: { 'Accept': 'application/json' }
-                    });
+                    const requestGeneration = generation;
+                    timer = setTimeout(async () => {
+                        if (requestGeneration !== generation) {
+                            return;
+                        }
 
-                    this.results = await response.json();
-                    this.open = true;
+                        timer = null;
+                        controller = new AbortController();
+
+                        try {
+                            const response = await fetch(searchUrl + '?q=' + encodeURIComponent(term), {
+                                headers: { 'Accept': 'application/json' },
+                                signal: controller.signal
+                            });
+                            if (requestGeneration !== generation || !response.ok) {
+                                return;
+                            }
+
+                            const results = await response.json();
+                            if (requestGeneration !== generation || !Array.isArray(results)
+                                || !results.every(item => item && typeof item.title === 'string'
+                                    && typeof item.type === 'string' && typeof item.url === 'string')) {
+                                return;
+                            }
+
+                            this.results = results;
+                            this.open = true;
+                        } catch {
+                            // Suggestions started closed; a failed or aborted request must not reopen them.
+                        } finally {
+                            if (requestGeneration === generation) {
+                                controller = null;
+                            }
+                        }
+                    }, 250);
                 }
             }
         }
