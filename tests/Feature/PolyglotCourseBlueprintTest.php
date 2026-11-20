@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Services\PolyglotCourseBlueprintService;
+use App\Services\PolyglotCourseManifestService;
+use Mockery\MockInterface;
 use Tests\Support\PreparesPolyglotCourseFixtures;
 use Tests\TestCase;
 
@@ -60,6 +62,20 @@ class PolyglotCourseBlueprintTest extends TestCase
         $this->assertSame([], $status['missing_lessons']);
         $this->assertSame([], $status['validation']['broken_previous_refs']);
         $this->assertSame([], $status['validation']['broken_next_refs']);
+    }
+
+    public function test_status_accepts_the_same_course_manifest_without_rebuilding_or_using_another_course(): void
+    {
+        $expected = app(PolyglotCourseBlueprintService::class)->buildCourseStatus('polyglot-english-b1');
+        $otherManifest = app(PolyglotCourseManifestService::class)->build('sentence-builder-english-a2');
+
+        $this->partialMock(PolyglotCourseManifestService::class, function (MockInterface $mock): void {
+            $mock->shouldReceive('build')->once()->with('polyglot-english-b1')->passthru();
+        });
+        $blueprints = app(PolyglotCourseBlueprintService::class);
+
+        $this->assertSame($expected, $blueprints->buildCourseStatus('sentence-builder-english-b1', $expected['manifest']));
+        $this->assertSame($expected, $blueprints->buildCourseStatus('sentence-builder-english-b1', $otherManifest));
     }
 
     public function test_a2_blueprint_file_loads_with_unique_lesson_orders_and_slugs(): void

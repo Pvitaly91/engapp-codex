@@ -62,10 +62,14 @@ class PolyglotCourseBlueprintService
         return $this->buildCourseStatus($courseSlug)['validation'];
     }
 
-    public function buildCourseStatus(string $courseSlug): array
+    /** An optional manifest is supplied by the caller within the current request. */
+    public function buildCourseStatus(string $courseSlug, ?array $manifest = null): array
     {
         $courseSlug = SentenceBuilderBranding::legacyCourseSlug($courseSlug);
-        $manifest = $this->manifestService->build($courseSlug);
+        if (($manifest['course']['slug'] ?? null) !== $courseSlug) {
+            $manifest = $this->manifestService->build($courseSlug);
+        }
+
         $blueprint = $this->getCourseBlueprint($courseSlug);
         $manifestLessons = $manifest['lessons'] ?? [];
         $manifestBySlug = $manifest['by_slug'] ?? [];

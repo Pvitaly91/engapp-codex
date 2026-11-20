@@ -3,8 +3,10 @@
 namespace Tests\Feature;
 
 use App\Models\Question;
+use App\Services\PolyglotCourseManifestService;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Mockery\MockInterface;
 use Tests\Support\PreparesPolyglotCourseFixtures;
 use Tests\TestCase;
 
@@ -45,6 +47,10 @@ class PolyglotCourseLandingPageTest extends TestCase
 
     public function test_course_landing_route_works_and_renders_lessons_in_order(): void
     {
+        $this->partialMock(PolyglotCourseManifestService::class, function (MockInterface $mock): void {
+            $mock->shouldReceive('build')->once()->with('sentence-builder-english-a1')->passthru();
+        });
+
         $response = $this->get('/courses/sentence-builder-english-a1');
 
         $response->assertOk();
@@ -67,6 +73,14 @@ class PolyglotCourseLandingPageTest extends TestCase
             '/test/sentence-builder-superlatives-a1/step/compose',
             '/test/sentence-builder-final-drill-a1/step/compose',
         ], false);
+    }
+
+    public function test_course_landing_is_not_found_without_available_lessons(): void
+    {
+        DB::table('saved_grammar_tests')->delete();
+
+        $this->get('/courses/sentence-builder-english-a1')->assertNotFound();
+        $this->get('/courses/nonexistent-course')->assertNotFound();
     }
 
     public function test_lesson_urls_on_course_page_point_to_compose_routes(): void
