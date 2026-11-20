@@ -538,13 +538,18 @@ final class TheoryNativeContentRelease
         }
     }
 
-    private function binding(object $block, array $data): ?array
+    /** @param array{0: array, 1: array}|null $validatedSources Patch and master validated by the current operation. */
+    private function binding(object $block, array $data, ?array $validatedSources = null): ?array
     {
         $owners = array_column($this->profile['bindings'], 'identity');
         if (($block->locale ?? null) !== 'uk' || !in_array($block->seeder ?? null, $owners, true)
             || !isset($data[$this->profile['marker']])) { return null; }
         try {
-            [$before, $patch, $master, $contract] = $this->load(); $this->validate($before, $patch, $master, $contract);
+            if ($validatedSources === null) {
+                [$before, $patch, $master, $contract] = $this->load(); $this->validate($before, $patch, $master, $contract);
+            } else {
+                [$patch, $master] = $validatedSources;
+            }
             $i = array_search($block->seeder, $owners, true); $target = $patch['targets'][$i];
             if (($block->page_id ?? null) !== $target['page_binding']['id']
                 || ($block->page_category_id ?? null) !== $target['page_binding']['page_category_id']) { return null; }
@@ -669,7 +674,7 @@ final class TheoryNativeContentRelease
                 if (!$this->exactSubtitle($block, $target, $old)) { return $block; }
                 return $this->subtitleWasAbsent($old) ? null : $this->cloneBody($block, $old['page']['subtitle_html']);
             }
-            $binding = $this->binding($block, json_decode((string) $block->body, true, flags: JSON_THROW_ON_ERROR));
+            $binding = $this->binding($block, json_decode((string) $block->body, true, flags: JSON_THROW_ON_ERROR), [$patch, $master]);
             if ($binding === null) { return $block; }
             if ($binding['slot'] >= count($old['page']['blocks'])) { return null; }
             return $this->cloneConfig($block, $old['page']['blocks'][$binding['slot']]);
