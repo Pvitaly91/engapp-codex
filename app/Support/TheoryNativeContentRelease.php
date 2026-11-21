@@ -692,15 +692,27 @@ final class TheoryNativeContentRelease
     private function standaloneTextBlockSources(): array
     {
         $app = app();
-        $request = ($this->profile['label'] ?? null) === 'M84' && $app->bound('request')
+        $label = $this->profile['label'] ?? null;
+        $key = match ($label) {
+            'M84' => self::class.'.standalone-word-order-sources',
+            'M90' => self::class.'.standalone-past-perfect-sources',
+            default => null,
+        };
+        $request = $key !== null && $app->bound('request')
             ? $app->make('request') : null;
         $route = $request instanceof Request ? $request->route() : null;
         $mayReuse = $route !== null && in_array($request->method(), ['GET', 'HEAD'], true)
-            && in_array($route->getName(), ['test.show', 'test.step'], true)
-            && $route->parameter('slug') === 'word-order/theory-basic-word-order'
-            && $app->getLocale() === 'uk';
+            && match ($label) {
+                'M84' => in_array($route->getName(), ['test.show', 'test.step'], true)
+                    && $route->parameter('slug') === 'word-order/theory-basic-word-order'
+                    && $app->getLocale() === 'uk',
+                // These interfaces share the same reviewed temporary projection of UK blocks.
+                'M90' => $route->getName() === 'test.show'
+                    && $route->parameter('slug') === 'past-perfect/forms'
+                    && in_array($app->getLocale(), ['uk', 'en', 'pl'], true),
+                default => false,
+            };
 
-        $key = self::class.'.standalone-word-order-sources';
         $root = base_path();
         $cached = $mayReuse ? $request->attributes->get($key) : null;
         if (is_array($cached) && ($cached['request'] ?? null) instanceof WeakReference

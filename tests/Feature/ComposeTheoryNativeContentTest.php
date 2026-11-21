@@ -13,6 +13,7 @@ use App\Support\M26DetailPackage;
 use App\Support\M69AdjectivesAdverbs;
 use App\Support\M84WordOrderHaveGot;
 use App\Support\M85VerbToBe;
+use App\Support\M90PastPerfectFutureSimpleBasics;
 use App\Support\TheoryNativeContentRelease;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -32,6 +33,10 @@ class ComposeTheoryNativeContentTest extends TestCase
     private const WORD_ORDER_SLUG = 'word-order/theory-basic-word-order';
 
     private const WORD_ORDER_SOURCE_KEY = TheoryNativeContentRelease::class.'.standalone-word-order-sources';
+
+    private const PAST_PERFECT_SLUG = 'past-perfect/forms';
+
+    private const PAST_PERFECT_SOURCE_KEY = TheoryNativeContentRelease::class.'.standalone-past-perfect-sources';
 
     public function test_exact_owned_blocks_restore_legacy_data_without_mutating_the_model(): void
     {
@@ -269,6 +274,135 @@ class ComposeTheoryNativeContentTest extends TestCase
         $this->assertFalse($foreignProfileRequest->attributes->has(self::WORD_ORDER_SOURCE_KEY));
     }
 
+    public function test_past_perfect_standalone_reuses_sources_without_reusing_block_bindings(): void
+    {
+        [$before, $patch] = M90PastPerfectFutureSimpleBasics::load();
+        $target = $patch['targets'][0];
+        $request = $this->bindPastPerfectRequest();
+
+        foreach ($target['after']['page']['blocks'] as $slot => $source) {
+            $block = $this->boundBlock($target, $source, $slot + 1);
+            $stored = $block->getAttributes();
+            $restored = M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'standalone_test');
+            $this->assertInstanceOf(TextBlock::class, $restored);
+            $this->assertNotSame($block, $restored);
+            $this->assertSame($block->uuid, $restored->uuid);
+            $old = $before['targets'][0]['before']['page']['blocks'][$slot];
+            foreach (['body', 'type', 'column', 'heading', 'level', 'css_class'] as $field) {
+                $this->assertSame($old[$field] ?? null, $restored->$field, $field);
+            }
+            $this->assertSame($stored, $block->getAttributes());
+            $this->assertSame($stored, $block->getRawOriginal());
+
+            $memo = $request->attributes->get(self::PAST_PERFECT_SOURCE_KEY);
+            $this->assertSame($request, $memo['request']->get());
+            if ($slot === 0) {
+                $memo['test_receipt'] = $receipt = new \stdClass;
+                $request->attributes->set(self::PAST_PERFECT_SOURCE_KEY, $memo);
+            } else {
+                $this->assertSame($receipt, $memo['test_receipt'] ?? null);
+            }
+        }
+
+        $block = $this->boundBlock($target, $target['after']['page']['blocks'][1], 2);
+        foreach ([
+            'uuid' => 'foreign-block', 'seeder' => 'ForeignTheorySeeder', 'locale' => 'pl',
+            'page_id' => -1, 'page_category_id' => -1, 'sort_order' => 1000, 'type' => 'summary-list',
+            'column' => 'other-column', 'heading' => 'other-heading', 'level' => 'XX', 'css_class' => 'other-css',
+            'body' => $block->body."\n",
+        ] as $field => $wrong) {
+            $foreign = (clone $block)->setRawAttributes(array_replace($block->getAttributes(), [$field => $wrong]), true);
+            $this->assertSame($foreign, M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($foreign, 'standalone_test'), $field);
+        }
+        $this->assertSame($block, M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'theory'));
+        $this->assertFalse($request->attributes->has(self::WORD_ORDER_SOURCE_KEY));
+    }
+
+    public function test_past_perfect_rechecks_each_owned_artifact_on_memo_hits_and_never_memoizes_a_failure(): void
+    {
+        [$profile] = $this->copyPrivateProfile(M90PastPerfectFutureSimpleBasics::profile(), M90PastPerfectFutureSimpleBasics::SOURCE);
+        $release = new TheoryNativeContentRelease($profile);
+        [$before, $patch] = $release->load();
+        $target = $patch['targets'][0];
+        $block = $this->boundBlock($target, $target['after']['page']['blocks'][1], 2);
+        $oldBody = $before['targets'][0]['before']['page']['blocks'][1]['body'];
+        $request = $this->bindPastPerfectRequest();
+        $this->assertSame($oldBody, $release->preserveExcludedTextBlock($block, 'standalone_test')?->body);
+        $this->assertTrue($request->attributes->has(self::PAST_PERFECT_SOURCE_KEY));
+
+        foreach (array_keys($profile['artifacts']) as $relative) {
+            $file = base_path($relative);
+            IsolatedTestEnvironment::assertOwnedPath($file);
+            $bytes = file_get_contents($file);
+            $this->assertIsString($bytes, $relative);
+            try {
+                $this->assertNotFalse(file_put_contents($file, $bytes."\n"));
+                $this->assertSame($block, $release->preserveExcludedTextBlock($block, 'standalone_test'), $relative);
+                $this->assertTrue(unlink($file));
+                $this->assertSame($block, $release->preserveExcludedTextBlock($block, 'standalone_test'), $relative);
+
+                $uncached = $this->bindPastPerfectRequest();
+                $this->assertSame($block, $release->preserveExcludedTextBlock($block, 'standalone_test'), $relative);
+                $this->assertFalse($uncached->attributes->has(self::PAST_PERFECT_SOURCE_KEY), $relative);
+            } finally {
+                $this->assertNotFalse(file_put_contents($file, $bytes));
+            }
+            $this->assertSame($oldBody, $release->preserveExcludedTextBlock($block, 'standalone_test')?->body, $relative);
+            $this->assertTrue($uncached->attributes->has(self::PAST_PERFECT_SOURCE_KEY), $relative);
+            $this->app->instance('request', $request);
+        }
+    }
+
+    public function test_past_perfect_sources_are_scoped_to_the_exact_request_app_root_and_profile(): void
+    {
+        [, $patch] = M90PastPerfectFutureSimpleBasics::load();
+        $target = $patch['targets'][0];
+        $block = $this->boundBlock($target, $target['after']['page']['blocks'][1], 2);
+        $request = $this->bindPastPerfectRequest(method: 'HEAD');
+        $expected = M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'standalone_test');
+        $this->assertInstanceOf(TextBlock::class, $expected);
+        $this->assertNotSame($block, $expected);
+
+        $duplicate = $request->duplicate();
+        $this->assertSame($request, $duplicate->attributes->get(self::PAST_PERFECT_SOURCE_KEY)['request']->get());
+        $this->app->instance('request', $duplicate);
+        $this->assertSame($expected->getAttributes(), M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'standalone_test')?->getAttributes());
+        $this->assertSame($duplicate, $duplicate->attributes->get(self::PAST_PERFECT_SOURCE_KEY)['request']->get());
+        $this->assertSame($request, $request->attributes->get(self::PAST_PERFECT_SOURCE_KEY)['request']->get());
+
+        $foreignApp = new \stdClass;
+        foreach (['app' => WeakReference::create($foreignApp), 'root' => base_path('foreign')] as $field => $foreignValue) {
+            $valid = $duplicate->attributes->get(self::PAST_PERFECT_SOURCE_KEY);
+            $duplicate->attributes->set(self::PAST_PERFECT_SOURCE_KEY, array_replace($valid, [$field => $foreignValue]));
+            $this->assertSame($expected->getAttributes(), M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'standalone_test')?->getAttributes());
+            $this->assertSame($valid[$field], $duplicate->attributes->get(self::PAST_PERFECT_SOURCE_KEY)[$field], $field);
+        }
+
+        $wrongProfile = M90PastPerfectFutureSimpleBasics::profile();
+        $wrongProfile['bindings'][0]['slug'] = 'different-profile-binding';
+        $valid = $duplicate->attributes->get(self::PAST_PERFECT_SOURCE_KEY);
+        $this->assertSame($block, (new TheoryNativeContentRelease($wrongProfile))->preserveExcludedTextBlock($block, 'standalone_test'));
+        $this->assertSame($valid, $duplicate->attributes->get(self::PAST_PERFECT_SOURCE_KEY));
+
+        foreach (['en', 'pl'] as $locale) {
+            $localized = $this->bindPastPerfectRequest(locale: $locale);
+            $this->assertSame($expected->getAttributes(), M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'standalone_test')?->getAttributes());
+            $this->assertSame($localized, $localized->attributes->get(self::PAST_PERFECT_SOURCE_KEY)['request']->get());
+        }
+
+        foreach ([
+            ['test.show', 'GET', 'past-perfect/negatives', 'uk'],
+            ['test.step', 'GET', self::PAST_PERFECT_SLUG, 'uk'],
+            ['test.show', 'POST', self::PAST_PERFECT_SLUG, 'uk'],
+            ['test.js.questions', 'GET', self::PAST_PERFECT_SLUG, 'uk'],
+            ['test.show', 'GET', self::PAST_PERFECT_SLUG, 'de'],
+        ] as [$name, $method, $slug, $locale]) {
+            $outside = $this->bindPastPerfectRequest($name, $method, $slug, $locale);
+            $this->assertSame($expected->getAttributes(), M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'standalone_test')?->getAttributes());
+            $this->assertFalse($outside->attributes->has(self::PAST_PERFECT_SOURCE_KEY));
+        }
+    }
+
     public function test_compose_payload_keeps_ordered_pivot_priority_deduplication_and_legacy_fallback(): void
     {
         $this->rebuildComposeTestSchema();
@@ -496,6 +630,26 @@ class ComposeTheoryNativeContentTest extends TestCase
         $suffix = $name === 'test.step' ? '/step' : '';
         $request = Request::create('http://gramlyze.loc/test/'.$slug.$suffix, $method);
         $route = new Route([$method], '/test/{slug}'.$suffix, static fn () => null);
+        $route->name($name)->where('slug', '.*')->bind($request);
+        $request->setRouteResolver(static fn () => $route);
+        $this->app->instance('request', $request);
+        $this->app->setLocale($locale);
+        $this->assertSame($slug, $request->route('slug'));
+
+        return $request;
+    }
+
+    private function bindPastPerfectRequest(
+        string $name = 'test.show', string $method = 'GET', string $slug = self::PAST_PERFECT_SLUG, string $locale = 'uk'
+    ): Request {
+        $prefix = $locale === 'uk' ? '' : '/'.$locale;
+        $suffix = match ($name) {
+            'test.step' => '/step',
+            'test.js.questions' => '/questions',
+            default => '',
+        };
+        $request = Request::create('http://gramlyze.loc'.$prefix.'/test/'.$slug.$suffix, $method);
+        $route = new Route([$method], $prefix.'/test/{slug}'.$suffix, static fn () => null);
         $route->name($name)->where('slug', '.*')->bind($request);
         $request->setRouteResolver(static fn () => $route);
         $this->app->instance('request', $request);
