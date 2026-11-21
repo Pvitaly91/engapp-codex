@@ -150,6 +150,7 @@ abstract class SeededPublicFlowTestCase extends TestCase
             'saved_grammar_test_questions',
             'saved_grammar_tests',
             'tests',
+            'question_hints',
             'question_answers',
             'question_option_question',
             'question_options',
@@ -274,6 +275,16 @@ abstract class SeededPublicFlowTestCase extends TestCase
             $table->string('marker');
             $table->timestamps();
             $table->unique(['question_id', 'marker', 'option_id'], 'question_marker_option_unique');
+        });
+
+        Schema::create('question_hints', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('question_id')->constrained()->cascadeOnDelete();
+            $table->string('provider');
+            $table->string('locale', 5);
+            $table->text('hint');
+            $table->timestamps();
+            $table->unique(['question_id', 'provider', 'locale']);
         });
 
         Schema::create('verb_hints', function (Blueprint $table) {
