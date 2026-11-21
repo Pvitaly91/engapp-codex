@@ -176,6 +176,18 @@ class SavedTestJsStateTest extends TestCase
             });
         }
 
+        if (! Schema::hasTable('question_hints')) {
+            Schema::create('question_hints', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('question_id')->constrained()->cascadeOnDelete();
+                $table->string('provider');
+                $table->string('locale', 5);
+                $table->text('hint');
+                $table->timestamps();
+                $table->unique(['question_id', 'provider', 'locale']);
+            });
+        }
+
         if (! Schema::hasTable('question_variants')) {
             Schema::create('question_variants', function (Blueprint $table) {
                 $table->id();
@@ -195,6 +207,7 @@ class SavedTestJsStateTest extends TestCase
             'question_answers',
             'question_variants',
             'verb_hints',
+            'question_hints',
             'questions',
             'question_options',
             'categories',
