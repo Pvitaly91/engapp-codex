@@ -148,6 +148,7 @@ const COMPOSE_TOKENS_QUESTION_TYPE = @json((string) \App\Models\Question::TYPE_C
 @include('components.marker-theory-js')
 <script>
 const POLYGLOT_OPTIONS_PER_SLOT = 4;
+const MANUAL_WORD_SEARCH_DELAY = 250;
 
 function getMarkersCount(q) {
   if (Number.isInteger(q?.markers_count)) {
@@ -311,6 +312,8 @@ const state = {
 };
 
 let globalEventsHooked = false;
+let manualWordSearch = null;
+let manualAnswerFocusTimer = null;
 
 const loaderEl = document.getElementById('ajax-loader');
 function showLoader(show) {
@@ -350,6 +353,7 @@ function handleManualAnswerShortcut(e) {
 }
 
 async function init(forceFresh = false) {
+  resetManualAnswerInteraction();
   const baseQuestions = await loadQuestions(forceFresh);
   QUESTIONS = Array.isArray(baseQuestions) ? baseQuestions : [];
 
@@ -374,9 +378,8 @@ async function init(forceFresh = false) {
         if (!Array.isArray(item.manualInputsBySlot)) {
           item.manualInputsBySlot = Array(markersCount).fill('');
         }
-        if (!Array.isArray(item.wordSuggestionsBySlot)) {
-          item.wordSuggestionsBySlot = Array(markersCount).fill(null).map(() => []);
-        }
+        // Dictionary results are valid only for the field that requested them.
+        item.wordSuggestionsBySlot = Array.from({ length: markersCount }, () => []);
         if (!Array.isArray(item.wordSearchRequestBySlot)) {
           item.wordSearchRequestBySlot = Array(markersCount).fill(0);
         }
@@ -455,6 +458,7 @@ async function init(forceFresh = false) {
 }
 
 function render() {
+  resetManualAnswerInteraction();
   const wrap = document.getElementById('question-card');
   const q = state.items[state.current];
   clampActiveSlot(q);
@@ -788,7 +792,7 @@ document.getElementById('question-card').addEventListener('input', (e) => {
     manualInput.classList.add('border-indigo-300', 'focus:border-indigo-500', 'focus:ring-4', 'focus:ring-indigo-100');
   }
   q.manualInputsBySlot[slotIndex] = draft;
-  searchManualWords(state.current, slotIndex, manualInput.value);
+  scheduleManualWordSearch(state.current, slotIndex, manualInput);
   persistState(state);
 });
 
@@ -796,13 +800,8 @@ document.getElementById('question-card').addEventListener('keydown', (e) => {
   const manualInput = e.target.closest('input[data-manual-gap]');
   if (!manualInput) return;
 
-  const q = state.items[state.current];
-  if (!q) return;
-  const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
-  if (isNaN(slotIndex)) return;
-
   if (e.key === 'Escape') {
-    dismissManualSuggestions(state.current, slotIndex);
+    dismissManualSuggestionsForInput(manualInput);
   }
 });
 
@@ -810,10 +809,7 @@ document.getElementById('question-card').addEventListener('focusout', (e) => {
   const manualInput = e.target.closest('input[data-manual-gap]');
   if (!manualInput) return;
 
-  const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
-  if (isNaN(slotIndex)) return;
-
-  dismissManualSuggestions(state.current, slotIndex);
+  dismissManualSuggestionsForInput(manualInput);
 });
 
 function onChoose(opt) {
@@ -832,7 +828,7 @@ function onChoose(opt) {
   const key = buildExplanationKey(opt, expected);
   let explanationPromise = Promise.resolve('');
   q.manualInputsBySlot[slotIndex] = opt;
-  q.wordSuggestionsBySlot[slotIndex] = [];
+  invalidateManualSuggestions(q, slotIndex);
 
   if (testAnswerMatches(q, slotIndex, opt)) {
     rememberFeedbackAnswer(q, slotIndex, 'correct', opt);
@@ -1131,18 +1127,39 @@ function renderManualGapInput(q, idx, slotIndex) {
   `;
 }
 
+function isCurrentManualAnswerInput(idx, item, slotIndex, wordIndex, input) {
+  return idx === state.current && state.items[idx] === item && !item.done
+    && slotIndex === item.activeSlot && item.chosen?.[slotIndex] == null
+    && wordIndex === Number(item.manualWordIndexBySlot?.[slotIndex] || 0)
+    && input && !input.disabled
+    && document.getElementById(manualInputId(idx, slotIndex, wordIndex)) === input;
+}
+
+function cancelManualAnswerFocus() {
+  if (manualAnswerFocusTimer !== null) {
+    clearTimeout(manualAnswerFocusTimer);
+    manualAnswerFocusTimer = null;
+  }
+}
+
 function focusManualAnswer(idx, slotIndex, wordIndex = null) {
-  setTimeout(() => {
-    const item = state.items[idx];
-    if (!item || item.done) return;
-    ensureManualSlotState(item);
-    clampActiveSlot(item);
-    const safeSlotIndex = item.activeSlot;
-    const safeWordIndex = Number.isInteger(wordIndex)
-      ? wordIndex
-      : Number(item.manualWordIndexBySlot[safeSlotIndex] || 0);
-    const input = document.getElementById(manualInputId(idx, safeSlotIndex, safeWordIndex));
-    if (!input) return;
+  if (idx !== state.current) return;
+  cancelManualAnswerFocus();
+  const item = state.items[idx];
+  if (!item || item.done) return;
+  ensureManualSlotState(item);
+  clampActiveSlot(item);
+  const safeSlotIndex = item.activeSlot;
+  const safeWordIndex = Number.isInteger(wordIndex)
+    ? wordIndex
+    : Number(item.manualWordIndexBySlot[safeSlotIndex] || 0);
+  const input = document.getElementById(manualInputId(idx, safeSlotIndex, safeWordIndex));
+  if (!input) return;
+
+  // A deferred focus must not look up a replacement field with the same ID.
+  manualAnswerFocusTimer = setTimeout(() => {
+    manualAnswerFocusTimer = null;
+    if (!isCurrentManualAnswerInput(idx, item, safeSlotIndex, safeWordIndex, input)) return;
     input.focus();
     input.select();
   }, 0);
@@ -1150,7 +1167,7 @@ function focusManualAnswer(idx, slotIndex, wordIndex = null) {
 
 function updateManualSuggestionsDom(idx, slotIndex) {
   const item = state.items[idx];
-  if (!item) return;
+  if (!item || idx !== state.current || slotIndex !== item.activeSlot) return;
   ensureManualSlotState(item);
 
   const list = document.getElementById(manualSuggestionsId(idx, slotIndex));
@@ -1169,8 +1186,29 @@ function updateManualSuggestionsDom(idx, slotIndex) {
 }
 
 function invalidateManualSuggestions(item, slotIndex) {
+  const search = manualWordSearch;
+  if (search?.item === item && search.slotIndex === slotIndex) {
+    manualWordSearch = null;
+    if (search.timer !== null) clearTimeout(search.timer);
+    search.controller?.abort();
+  }
   item.wordSearchRequestBySlot[slotIndex] = (item.wordSearchRequestBySlot[slotIndex] || 0) + 1;
   item.wordSuggestionsBySlot[slotIndex] = [];
+}
+
+function resetManualAnswerInteraction() {
+  cancelManualAnswerFocus();
+  if (manualWordSearch !== null) {
+    invalidateManualSuggestions(manualWordSearch.item, manualWordSearch.slotIndex);
+  }
+  // Removing a focused element may not fire focusout. Release the keyboard
+  // popup context while the previous field and list are still in the DOM.
+  const list = document.getElementById('question-card')?.querySelector('[data-manual-suggestions]');
+  if (list) {
+    const input = list.parentElement?.querySelector('input[data-manual-gap]');
+    deactivateTestSuggestionList(input, list, true);
+    list.innerHTML = '';
+  }
 }
 
 function dismissManualSuggestions(idx, slotIndex) {
@@ -1181,6 +1219,16 @@ function dismissManualSuggestions(idx, slotIndex) {
   invalidateManualSuggestions(item, slotIndex);
   updateManualSuggestionsDom(idx, slotIndex);
   persistState(state);
+}
+
+function dismissManualSuggestionsForInput(input) {
+  const idx = state.current;
+  const item = state.items[idx];
+  const slotIndex = Number(input.dataset.manualGap);
+  const wordIndex = Number(input.dataset.manualWord);
+  if (!item || !isCurrentManualAnswerInput(idx, item, slotIndex, wordIndex, input)) return;
+  cancelManualAnswerFocus();
+  dismissManualSuggestions(idx, slotIndex);
 }
 
 function commitManualWord(idx, slotIndex, wordIndex) {
@@ -1257,42 +1305,67 @@ function applyManualWordSuggestion(idx, slotIndex, wordIndex, value) {
   commitManualWord(idx, slotIndex, wordIndex);
 }
 
-async function searchManualWords(idx, slotIndex, query) {
+function scheduleManualWordSearch(idx, slotIndex, input) {
   const item = state.items[idx];
   if (!item) return;
   ensureManualSlotState(item);
-  clampActiveSlot(item);
-  if (slotIndex !== item.activeSlot) return;
+  const wordIndex = Number(item.manualWordIndexBySlot[slotIndex] || 0);
+  if (!isCurrentManualAnswerInput(idx, item, slotIndex, wordIndex, input)) return;
 
-  const normalizedQuery = String(query ?? '').trim();
-  const requestId = (item.wordSearchRequestBySlot[slotIndex] || 0) + 1;
-  item.wordSearchRequestBySlot[slotIndex] = requestId;
+  if (manualWordSearch !== null && (manualWordSearch.item !== item || manualWordSearch.slotIndex !== slotIndex)) {
+    invalidateManualSuggestions(manualWordSearch.item, manualWordSearch.slotIndex);
+  }
+  invalidateManualSuggestions(item, slotIndex);
+  updateManualSuggestionsDom(idx, slotIndex);
 
-  if (normalizedQuery.length < 2) {
-    item.wordSuggestionsBySlot[slotIndex] = [];
-    updateManualSuggestionsDom(idx, slotIndex);
+  const query = String(input.value ?? '').trim();
+  if (query.length < 2 || document.activeElement !== input || JS_TEST_RESTARTING) return;
+
+  const requestId = item.wordSearchRequestBySlot[slotIndex];
+  const search = { idx, item, slotIndex, wordIndex, input, query, requestId, timer: null, controller: null };
+  manualWordSearch = search;
+  search.timer = setTimeout(() => searchManualWords(search), MANUAL_WORD_SEARCH_DELAY);
+}
+
+function isCurrentManualWordSearch(search) {
+  const { idx, item, slotIndex, wordIndex, input, query, requestId } = search;
+  return manualWordSearch === search && !JS_TEST_RESTARTING
+    && item.wordSearchRequestBySlot[slotIndex] === requestId
+    && isCurrentManualAnswerInput(idx, item, slotIndex, wordIndex, input)
+    && input === document.activeElement && String(input.value ?? '').trim() === query;
+}
+
+async function searchManualWords(search) {
+  search.timer = null;
+  if (!isCurrentManualWordSearch(search)) {
+    if (manualWordSearch === search) manualWordSearch = null;
     return;
   }
 
+  const { idx, item, slotIndex, query } = search;
+  const controller = new AbortController();
+  search.controller = controller;
   try {
-    const response = await fetch(WORD_SEARCH_URL + '?q=' + encodeURIComponent(normalizedQuery), {
-      headers: { 'Accept': 'application/json' }
+    const response = await fetch(WORD_SEARCH_URL + '?q=' + encodeURIComponent(query), {
+      headers: { 'Accept': 'application/json' },
+      signal: controller.signal,
     });
+    if (!isCurrentManualWordSearch(search)) return;
     const data = await response.json();
-
-    if (item.wordSearchRequestBySlot[slotIndex] !== requestId) {
-      return;
-    }
+    if (!isCurrentManualWordSearch(search)) return;
 
     item.wordSuggestionsBySlot[slotIndex] = Array.isArray(data) ? data : [];
     updateManualSuggestionsDom(idx, slotIndex);
   } catch (error) {
-    if (item.wordSearchRequestBySlot[slotIndex] !== requestId) {
-      return;
-    }
+    if (error?.name === 'AbortError' || !isCurrentManualWordSearch(search)) return;
 
     item.wordSuggestionsBySlot[slotIndex] = [];
     updateManualSuggestionsDom(idx, slotIndex);
+  } finally {
+    search.controller = null;
+    if (manualWordSearch === search && !isCurrentManualWordSearch(search)) {
+      manualWordSearch = null;
+    }
   }
 }
 
@@ -1479,6 +1552,7 @@ function ensureExplanation(q, selected, expected, key, slotIndex) {
 }
 
 function showSummary() {
+  resetManualAnswerInteraction();
   document.getElementById('question-wrap').classList.add('hidden');
   const summary = document.getElementById('summary');
   summary.classList.remove('hidden');
@@ -1489,7 +1563,7 @@ function showSummary() {
   });
   const retryButton = document.getElementById('retry');
   if (retryButton) {
-    retryButton.onclick = () => restartJsTest(init, { showLoaderFn: showLoader, button: retryButton });
+    retryButton.onclick = () => restartStepTest(retryButton);
   }
 }
 
@@ -1701,11 +1775,17 @@ function hookGlobalEvents() {
   });
 }
 
-const restartButton = document.getElementById('restart-test');
-if (restartButton) {
-  restartButton.addEventListener('click', () => restartJsTest(init, { showLoaderFn: showLoader, button: restartButton }));
+function restartStepTest(button) {
+  resetManualAnswerInteraction();
+  return restartJsTest(init, { showLoaderFn: showLoader, button });
 }
 
+const restartButton = document.getElementById('restart-test');
+if (restartButton) {
+  restartButton.addEventListener('click', () => restartStepTest(restartButton));
+}
+
+window.addEventListener('pagehide', resetManualAnswerInteraction);
 init();
 </script>
 @include('components.sticky-header-scroll')

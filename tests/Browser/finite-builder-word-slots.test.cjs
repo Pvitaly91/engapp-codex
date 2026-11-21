@@ -43,6 +43,7 @@ function fixture(t, mode, raw) {
         'renderManualGapInput', 'focusManualAnswer', 'invalidateManualSuggestions', 'commitManualWord', 'submitManualAnswer',
         'renderFeedback', 'renderFeedbackAnswers', 'onChoose'];
     if (mode === 'card-easy') methods.push('acceptedAnswersForSlot', 'answerMatchesSlot');
+    require('./step-manual-autocomplete-scope.cjs')(source, c);
     vm.runInContext(methods.map(name => fn(source, name)).join('\n'), c);
     const render = () => { dom.window.document.body.innerHTML = c.renderManualGapInput(q, 0, q.activeSlot, 'preview'); };
     c.render = render; c.rerenderCard = render;

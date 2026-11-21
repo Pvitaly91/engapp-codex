@@ -45,6 +45,7 @@ function fixture(t, mode, expected = 'will be made', overrides = {}, testSlug = 
         'renderManualGapInput', 'focusManualAnswer', 'invalidateManualSuggestions', 'commitManualWord',
         'submitManualAnswer', 'renderFeedback', 'renderFeedbackAnswers', 'onChoose'];
     if (mode === 'card-easy') functions.push('acceptedAnswersForSlot', 'answerMatchesSlot');
+    require('./step-manual-autocomplete-scope.cjs')(source, context);
     vm.runInContext([...shared.map(name => sourceFunction(helpers, name)),
         ...functions.map(name => sourceFunction(source, name))].join('\n'), context);
     function render() {

@@ -28,6 +28,7 @@ function fixture(t,mode,raw=base,overrides={}){
   'manualAnswerWords','manualAnswerProgress','manualAnswerIsComplete','collectManualAnswer','manualInputId','rememberFeedbackAnswer','manualWordFeedbackState','renderManualGapInput','focusManualAnswer',
   'invalidateManualSuggestions','commitManualWord','submitManualAnswer','renderFeedback','renderFeedbackAnswers','onChoose','handleManualAnswerShortcut'];
  if(mode==='card-easy')functions.push('acceptedAnswersForSlot','answerMatchesSlot');
+ require('./step-manual-autocomplete-scope.cjs')(source, c);
  vm.runInContext([...helpers.map(n=>fn(shared,n)),fn(read('resources/views/components/test-suggestion-keyboard.blade.php'),'isTestAnswerCommitKey'),...functions.map(n=>fn(source,n))].join('\n'),c);
  const render=()=>{card.innerHTML=c.renderManualGapInput(q,0,q.activeSlot,'preview')+`<div id="${mode==='card-easy'?'feedback-0':'feedback'}" role="status">${c.renderFeedback(q)}</div>`;};
  c.render=render;c.rerenderCard=render;render();vm.runInContext(binding(source,mode),c);dom.window.document.addEventListener('keydown',c.handleManualAnswerShortcut,true);

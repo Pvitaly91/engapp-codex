@@ -31,6 +31,7 @@ function gapFixture(t,mode,raw){
   'manualInputId','rememberFeedbackAnswer','manualWordFeedbackState','renderManualGapInput','focusManualAnswer','invalidateManualSuggestions',
   'commitManualWord','submitManualAnswer','renderFeedback','renderFeedbackAnswers','onChoose'];
  if(mode==='card-easy')methods.push('acceptedAnswersForSlot','answerMatchesSlot');
+ require('./step-manual-autocomplete-scope.cjs')(source, c);
  vm.runInContext([...shared.map(n=>fn(helpers,n)),fn(helpers,'html'),...methods.map(n=>fn(source,n))].join('\n'),c);
  const render=()=>{dom.window.document.body.innerHTML=c.renderManualGapInput(q,0,0,'sentence');};c.render=render;c.rerenderCard=render;render();
  return {q,state,c,inputs:()=>[...dom.window.document.querySelectorAll('input[data-manual-gap]')],

@@ -74,6 +74,7 @@ function fixture(t, mode, expected, overrides = {}) {
     if (mode === 'card-easy') {
         modeFunctions.push('acceptedAnswersForSlot', 'answerMatchesSlot');
     }
+    require('./step-manual-autocomplete-scope.cjs')(source, context);
     vm.runInContext([
         ...sharedFunctions.map(name => readFunction(helpers, name)),
         ...modeFunctions.map(name => readFunction(source, name)),

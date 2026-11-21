@@ -87,6 +87,7 @@ function fixture(t, mode, overrides = {}) {
         'renderFeedbackAnswers', 'renderFeedback', 'handleManualAnswerShortcut',
     ];
     if (mode === 'card-easy') names.push('acceptedAnswersForSlot', 'answerMatchesSlot');
+    require('./step-manual-autocomplete-scope.cjs')(source, context);
     vm.runInContext([
         ...sharedNames.map(name => functionSource(shared, name)),
         functionSource(keyboard, 'isTestAnswerCommitKey'),
