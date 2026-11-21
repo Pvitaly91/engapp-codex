@@ -11,19 +11,27 @@ use App\Models\QuestionOption;
 use App\Models\TextBlock;
 use App\Support\M26DetailPackage;
 use App\Support\M69AdjectivesAdverbs;
+use App\Support\M84WordOrderHaveGot;
 use App\Support\M85VerbToBe;
 use App\Support\TheoryNativeContentRelease;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use ReflectionMethod;
 use Tests\Support\IsolatedTestEnvironment;
 use Tests\Support\RebuildsComposeTestSchema;
 use Tests\TestCase;
+use WeakReference;
 
 class ComposeTheoryNativeContentTest extends TestCase
 {
     use RebuildsComposeTestSchema;
+
+    private const WORD_ORDER_SLUG = 'word-order/theory-basic-word-order';
+
+    private const WORD_ORDER_SOURCE_KEY = TheoryNativeContentRelease::class.'.standalone-word-order-sources';
 
     public function test_exact_owned_blocks_restore_legacy_data_without_mutating_the_model(): void
     {
@@ -94,7 +102,7 @@ class ComposeTheoryNativeContentTest extends TestCase
         $page = $this->boundCoursePage($before, $target);
         $block = $this->boundBlock($target, $target['after']['page']['blocks'][1], 2);
         $data = json_decode($block->body, true, flags: JSON_THROW_ON_ERROR);
-        [$profile, $patchCopy] = $this->copyPrivateProfile();
+        [$profile, $patchCopy] = $this->copyPrivateProfile(M85VerbToBe::profile(), M85VerbToBe::SOURCE);
         $release = new TheoryNativeContentRelease($profile);
         $bytes = file_get_contents(base_path($patchCopy));
         $this->assertIsString($bytes);
@@ -129,6 +137,136 @@ class ComposeTheoryNativeContentTest extends TestCase
         $this->assertNotFalse(file_put_contents(base_path($patchCopy), $bytes));
         $this->assertSame($presented, $release->presentation($block, $data));
         $this->assertSame($restoredPage->toArray(), $release->preserveCoursePage($page)->toArray());
+    }
+
+    public function test_word_order_standalone_reuses_reviewed_sources_but_rebinds_each_block(): void
+    {
+        [$before, $patch] = M84WordOrderHaveGot::load();
+        $target = $patch['targets'][0];
+        $request = $this->bindWordOrderRequest();
+        $originals = [];
+
+        foreach ([0, 1] as $slot) {
+            $source = $target['after']['page']['blocks'][$slot];
+            $native = $this->boundBlock($target, $source, $slot + 1);
+            $originals[$slot] = $native;
+            $stored = $native->getAttributes();
+            // Uses a new release instance on each call, just as the controller does.
+            $restored = M84WordOrderHaveGot::preserveExcludedTextBlock($native, 'standalone_test');
+            $this->assertInstanceOf(TextBlock::class, $restored);
+            $this->assertNotSame($native, $restored);
+            $this->assertSame($native->uuid, $restored->uuid);
+            $old = $before['targets'][0]['before']['page']['blocks'][$slot];
+            foreach (['body', 'type', 'column', 'heading', 'level', 'css_class'] as $field) {
+                $this->assertSame($old[$field] ?? null, $restored->$field, $field);
+            }
+            $this->assertSame($stored, $native->getAttributes());
+            $this->assertSame($stored, $native->getRawOriginal());
+            $cached = $request->attributes->get(self::WORD_ORDER_SOURCE_KEY);
+            $this->assertSame($request, $cached['request']->get());
+            if ($slot === 0) {
+                // An inert, test-only field distinguishes reuse of this entry from replacement.
+                $cached['test_receipt'] = $receipt = new \stdClass;
+                $request->attributes->set(self::WORD_ORDER_SOURCE_KEY, $cached);
+            } else {
+                $this->assertSame($receipt, $cached['test_receipt'] ?? null, 'The second binding must reuse validated sources.');
+            }
+        }
+
+        $native = $originals[1];
+        foreach ([
+            'uuid' => 'foreign-block', 'seeder' => 'ForeignTheorySeeder', 'locale' => 'pl',
+            'page_id' => -1, 'page_category_id' => -1, 'sort_order' => 1000, 'type' => 'summary-list',
+            'column' => 'other-column', 'heading' => 'other-heading', 'level' => 'XX', 'css_class' => 'other-css',
+            'body' => $native->body."\n",
+        ] as $field => $wrong) {
+            $foreign = (clone $native)->setRawAttributes(array_replace($native->getAttributes(), [$field => $wrong]), true);
+            $this->assertSame($foreign, M84WordOrderHaveGot::preserveExcludedTextBlock($foreign, 'standalone_test'), $field);
+        }
+        $this->assertSame($native, M84WordOrderHaveGot::preserveExcludedTextBlock($native, 'theory'));
+    }
+
+    public function test_word_order_cache_hit_rechecks_every_private_artifact_and_does_not_keep_a_failure(): void
+    {
+        [$profile] = $this->copyPrivateProfile(M84WordOrderHaveGot::profile(), M84WordOrderHaveGot::SOURCE);
+        $release = new TheoryNativeContentRelease($profile);
+        [$before, $patch] = $release->load();
+        $target = $patch['targets'][0];
+        $block = $this->boundBlock($target, $target['after']['page']['blocks'][0], 1);
+        $request = $this->bindWordOrderRequest();
+        $oldBody = $before['targets'][0]['before']['page']['blocks'][0]['body'];
+        $this->assertSame($oldBody, $release->preserveExcludedTextBlock($block, 'standalone_test')?->body);
+        $this->assertTrue($request->attributes->has(self::WORD_ORDER_SOURCE_KEY));
+
+        foreach (array_keys($profile['artifacts']) as $relative) {
+            $file = base_path($relative);
+            IsolatedTestEnvironment::assertOwnedPath($file);
+            $bytes = file_get_contents($file);
+            $this->assertIsString($bytes, $relative);
+            try {
+                // Same decoded document, but no longer the independently pinned bytes.
+                $this->assertNotFalse(file_put_contents($file, $bytes."\n"));
+                $this->assertSame($block, $release->preserveExcludedTextBlock($block, 'standalone_test'), $relative);
+                $this->assertTrue(unlink($file));
+                $this->assertSame($block, $release->preserveExcludedTextBlock($block, 'standalone_test'), $relative);
+            } finally {
+                $this->assertNotFalse(file_put_contents($file, $bytes));
+            }
+            $this->assertSame($oldBody, $release->preserveExcludedTextBlock($block, 'standalone_test')?->body, $relative);
+        }
+    }
+
+    public function test_word_order_source_memo_is_limited_to_one_exact_request_scope_and_profile(): void
+    {
+        [, $patch] = M84WordOrderHaveGot::load();
+        $target = $patch['targets'][0];
+        $block = $this->boundBlock($target, $target['after']['page']['blocks'][0], 1);
+        $request = $this->bindWordOrderRequest(name: 'test.show', method: 'HEAD');
+        $expected = M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test');
+        $this->assertInstanceOf(TextBlock::class, $expected);
+        $this->assertNotSame($block, $expected);
+        $this->assertSame($request, $request->attributes->get(self::WORD_ORDER_SOURCE_KEY)['request']->get());
+
+        // A duplicated Request inherits arbitrary attributes, but not another request's proof.
+        $duplicate = $request->duplicate();
+        $this->assertSame($request, $duplicate->attributes->get(self::WORD_ORDER_SOURCE_KEY)['request']->get());
+        $this->app->instance('request', $duplicate);
+        $this->assertSame($expected->getAttributes(), M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test')?->getAttributes());
+        $this->assertSame($duplicate, $duplicate->attributes->get(self::WORD_ORDER_SOURCE_KEY)['request']->get());
+        $this->assertSame($request, $request->attributes->get(self::WORD_ORDER_SOURCE_KEY)['request']->get());
+
+        $foreignApp = new \stdClass;
+        foreach (['app' => WeakReference::create($foreignApp), 'root' => base_path('foreign')] as $field => $foreignValue) {
+            $previous = $duplicate->attributes->get(self::WORD_ORDER_SOURCE_KEY);
+            $duplicate->attributes->set(self::WORD_ORDER_SOURCE_KEY, array_replace($previous, [$field => $foreignValue]));
+            $again = M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test');
+            $this->assertSame($expected->getAttributes(), $again?->getAttributes());
+            $current = $duplicate->attributes->get(self::WORD_ORDER_SOURCE_KEY);
+            $this->assertSame($previous[$field], $current[$field], $field);
+        }
+
+        $wrongProfile = M84WordOrderHaveGot::profile();
+        $wrongProfile['bindings'][0]['slug'] = 'different-profile-binding';
+        $this->assertSame($block, (new TheoryNativeContentRelease($wrongProfile))->preserveExcludedTextBlock($block, 'standalone_test'));
+
+        foreach ([
+            ['test.step', 'GET', 'word-order/other', 'uk'],
+            ['test.step', 'POST', self::WORD_ORDER_SLUG, 'uk'],
+            ['test.other', 'GET', self::WORD_ORDER_SLUG, 'uk'],
+            ['test.step', 'GET', self::WORD_ORDER_SLUG, 'en'],
+        ] as [$name, $method, $slug, $locale]) {
+            $outside = $this->bindWordOrderRequest($name, $method, $slug, $locale);
+            $this->assertSame($expected->getAttributes(), M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test')?->getAttributes());
+            $this->assertFalse($outside->attributes->has(self::WORD_ORDER_SOURCE_KEY));
+        }
+
+        [, $otherTarget] = $this->presentFormsSources();
+        $other = $this->boundBlock($otherTarget, $otherTarget['after']['page']['blocks'][0], 1);
+        $foreignProfileRequest = $this->bindWordOrderRequest();
+        $restored = M85VerbToBe::preserveExcludedTextBlock($other, 'standalone_test');
+        $this->assertInstanceOf(TextBlock::class, $restored);
+        $this->assertNotSame($other, $restored);
+        $this->assertFalse($foreignProfileRequest->attributes->has(self::WORD_ORDER_SOURCE_KEY));
     }
 
     public function test_compose_payload_keeps_ordered_pivot_priority_deduplication_and_legacy_fallback(): void
@@ -352,7 +490,22 @@ class ComposeTheoryNativeContentTest extends TestCase
         return $page->setRelation('textBlocks', new Collection(array_reverse($blocks)));
     }
 
-    private function copyPrivateProfile(): array
+    private function bindWordOrderRequest(
+        string $name = 'test.step', string $method = 'GET', string $slug = self::WORD_ORDER_SLUG, string $locale = 'uk'
+    ): Request {
+        $suffix = $name === 'test.step' ? '/step' : '';
+        $request = Request::create('http://gramlyze.loc/test/'.$slug.$suffix, $method);
+        $route = new Route([$method], '/test/{slug}'.$suffix, static fn () => null);
+        $route->name($name)->where('slug', '.*')->bind($request);
+        $request->setRouteResolver(static fn () => $route);
+        $this->app->instance('request', $request);
+        $this->app->setLocale($locale);
+        $this->assertSame($slug, $request->route('slug'));
+
+        return $request;
+    }
+
+    private function copyPrivateProfile(array $profile, string $patchPath): array
     {
         $root = str_replace('\\', '/', IsolatedTestEnvironment::prepare());
         $base = str_replace('\\', '/', base_path());
@@ -361,7 +514,6 @@ class ComposeTheoryNativeContentTest extends TestCase
         $this->assertTrue(mkdir(base_path($private)));
         IsolatedTestEnvironment::assertOwnedPath(base_path($private));
 
-        $profile = M85VerbToBe::profile();
         $artifacts = [];
         foreach ($profile['artifacts'] as $source => $digest) {
             $copy = $private.'/'.$source;
@@ -375,6 +527,6 @@ class ComposeTheoryNativeContentTest extends TestCase
         }
         $profile['artifacts'] = $artifacts;
 
-        return [$profile, $private.'/'.M85VerbToBe::SOURCE];
+        return [$profile, $private.'/'.$patchPath];
     }
 }

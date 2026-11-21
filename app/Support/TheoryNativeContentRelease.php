@@ -5,7 +5,9 @@ namespace App\Support;
 use App\Models\Page;
 use App\Models\TextBlock;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
 use RuntimeException;
+use WeakReference;
 
 /**
  * Data-only boundary for reviewed native releases. Existing M49 serialisation
@@ -25,17 +27,23 @@ final class TheoryNativeContentRelease
     {
         $root ??= base_path(); $out = [];
         foreach ($this->profile['artifacts'] as $path => $sha) {
-            if (!is_string($sha) || preg_match('/^[a-f0-9]{64}$/D', $sha) !== 1
-                || !is_file($root.'/'.$path) || is_link($root.'/'.$path)) {
-                $this->fail('release is not reviewed/frozen: '.$path);
-            }
-            $bytes = file_get_contents($root.'/'.$path);
-            if (!is_string($bytes) || !hash_equals($sha, hash('sha256', $bytes))) {
-                $this->fail('immutable source differs: '.$path);
-            }
-            $out[] = json_decode($bytes, true, flags: JSON_THROW_ON_ERROR);
+            $out[] = json_decode($this->verifiedArtifactBytes($root, $path, $sha), true, flags: JSON_THROW_ON_ERROR);
         }
         return $out;
+    }
+
+    private function verifiedArtifactBytes(string $root, string $path, mixed $sha): string
+    {
+        $file = $root.'/'.$path;
+        if (!is_string($sha) || preg_match('/^[a-f0-9]{64}$/D', $sha) !== 1
+            || !is_file($file) || is_link($file)) {
+            $this->fail('release is not reviewed/frozen: '.$path);
+        }
+        $bytes = file_get_contents($file);
+        if (!is_string($bytes) || !hash_equals($sha, hash('sha256', $bytes))) {
+            $this->fail('immutable source differs: '.$path);
+        }
+        return $bytes;
     }
 
     /** Pure projection: only the unchanged accepted serializer owns HTML. */
@@ -666,7 +674,7 @@ final class TheoryNativeContentRelease
         if ($caller !== 'standalone_test' || ($block->locale ?? null) !== 'uk'
             || !in_array($block->seeder ?? null, $owners, true)) { return $block; }
         try {
-            [$before, $patch, $master, $contract] = $this->load(); $this->validate($before, $patch, $master, $contract);
+            [$before, $patch, $master] = $this->standaloneTextBlockSources();
             $i = array_search($block->seeder, $owners, true); $target = $patch['targets'][$i]; $old = $before['targets'][$i]['before'];
             if (($block->page_id ?? null) !== $target['page_binding']['id']
                 || ($block->page_category_id ?? null) !== $target['page_binding']['page_category_id']) { return $block; }
@@ -679,6 +687,44 @@ final class TheoryNativeContentRelease
             if ($binding['slot'] >= count($old['page']['blocks'])) { return null; }
             return $this->cloneConfig($block, $old['page']['blocks'][$binding['slot']]);
         } catch (\Throwable) { return $block; }
+    }
+
+    private function standaloneTextBlockSources(): array
+    {
+        $app = app();
+        $request = ($this->profile['label'] ?? null) === 'M84' && $app->bound('request')
+            ? $app->make('request') : null;
+        $route = $request instanceof Request ? $request->route() : null;
+        $mayReuse = $route !== null && in_array($request->method(), ['GET', 'HEAD'], true)
+            && in_array($route->getName(), ['test.show', 'test.step'], true)
+            && $route->parameter('slug') === 'word-order/theory-basic-word-order'
+            && $app->getLocale() === 'uk';
+
+        $key = self::class.'.standalone-word-order-sources';
+        $root = base_path();
+        $cached = $mayReuse ? $request->attributes->get($key) : null;
+        if (is_array($cached) && ($cached['request'] ?? null) instanceof WeakReference
+            && $cached['request']->get() === $request && ($cached['app'] ?? null) instanceof WeakReference
+            && $cached['app']->get() === $app && ($cached['root'] ?? null) === $root
+            && ($cached['profile'] ?? null) === $this->profile) {
+            // Verify current bytes on every use, even after a successful validation.
+            // Only canonical source arrays are reused; block binding stays per block.
+            foreach ($this->profile['artifacts'] as $path => $sha) {
+                $this->verifiedArtifactBytes($root, $path, $sha);
+            }
+            return $cached['sources'];
+        }
+
+        [$before, $patch, $master, $contract] = $this->load();
+        $this->validate($before, $patch, $master, $contract);
+        $sources = [$before, $patch, $master];
+        if ($mayReuse) {
+            $request->attributes->set($key, [
+                'request' => WeakReference::create($request), 'app' => WeakReference::create($app),
+                'root' => $root, 'profile' => $this->profile, 'sources' => $sources,
+            ]);
+        }
+        return $sources;
     }
 
     public function preserveCoursePage(?Page $page): ?Page
