@@ -38,7 +38,10 @@ class WordSearchController extends Controller
             ->unique()
             ->values();
 
-        $formsByTranslation = $translations->isEmpty()
+        // A result without a type or primary translation never reads the forms map.
+        $formsByTranslation = $translations->isEmpty() || ! $words->contains(
+            fn (Word $word) => $word->type && filled($word->translates->first()?->translation)
+        )
             ? collect()
             : Word::query()
                 ->join('translates', 'translates.word_id', '=', 'words.id')
