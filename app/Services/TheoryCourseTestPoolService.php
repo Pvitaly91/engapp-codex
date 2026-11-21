@@ -7,6 +7,7 @@ use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\SavedGrammarTest;
 use App\Support\ComposeModeEligibility;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
@@ -181,17 +182,9 @@ class TheoryCourseTestPoolService
      */
     private function withQuestionRelations(Collection $questions, array $relations): Collection
     {
-        if (method_exists($questions, 'loadMissing')) {
-            $questions->loadMissing($relations);
-
-            return $questions->values();
-        }
-
-        $questions->each(function (mixed $question) use ($relations): void {
-            if ($question instanceof Question) {
-                $question->loadMissing($relations);
-            }
-        });
+        // The filter can return a Support collection; batch over its existing Question objects.
+        $models = $questions->filter(fn (mixed $question): bool => $question instanceof Question);
+        (new EloquentCollection($models->all()))->loadMissing($relations);
 
         return $questions->values();
     }
