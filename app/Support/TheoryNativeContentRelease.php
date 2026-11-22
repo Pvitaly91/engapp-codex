@@ -546,7 +546,7 @@ final class TheoryNativeContentRelease
         }
     }
 
-    /** @param array{0: array, 1: array}|null $validatedSources Patch and master validated by the current operation. */
+    /** @param array{0: array, 1: ?array}|null $validatedSources Validated patch, plus master for presentation. */
     private function binding(object $block, array $data, ?array $validatedSources = null): ?array
     {
         $owners = array_column($this->profile['bindings'], 'identity');
@@ -568,7 +568,9 @@ final class TheoryNativeContentRelease
                 }
                 if ((int) ($block->sort_order ?? -1) !== $slot + 1 || ($block->body ?? null) !== $source['body']
                     || $data !== json_decode($source['body'], true, flags: JSON_THROW_ON_ERROR)) { return null; }
-                return ['target' => $target, 'lesson' => $master['lessons'][$i], 'source' => $source, 'slot' => $slot];
+                $binding = ['target' => $target, 'source' => $source, 'slot' => $slot];
+                if ($master !== null) { $binding['lesson'] = $master['lessons'][$i]; }
+                return $binding;
             }
         } catch (\Throwable) { /* Full stored fallback stays available on any stale/foreign source. */ }
         return null;
@@ -692,10 +694,16 @@ final class TheoryNativeContentRelease
     private function validatedSources(string $caller): array
     {
         return ValidatedNativeContentSources::read($this->profile, $caller,
-            function (string $root): array {
+            function (string $root) use ($caller): array {
                 [$before, $patch, $master, $contract] = $this->load($root);
                 $this->validate($before, $patch, $master, $contract);
-                return [$before, $patch, $master];
+                // A standalone binding only uses the exact patched block and its
+                // legacy counterpart. Theory only uses the patch and master.
+                return match ($caller) {
+                    'standalone_test' => [$before, $patch, null],
+                    'canonical_theory' => [null, $patch, $master],
+                    default => [$before, $patch, $master],
+                };
             },
             function (string $root): void {
                 foreach ($this->profile['artifacts'] as $path => $sha) {
