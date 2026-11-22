@@ -36,14 +36,15 @@ function quote(value) {
   return '"' + value + '"';
 }
 
-function assertSealed(root) {
+function assertSealed(root, workerRoleSid = null) {
   assert.equal(process.platform, 'win32', 'no supported NTFS seal verifier');
   // The trusted interpreter is deliberately not selected via PATH, a
   // caller override or an execution-policy change. Missing PS7 blocks D.
   const powershell = 'C:/Program Files/PowerShell/7/pwsh.exe';
   const script = path.join(__dirname, 'seal-release.ps1');
   const result = spawnSync(powershell, ['-NoLogo', '-NoProfile', '-NonInteractive', '-File', script,
-    '-Mode', 'Verify', '-ReleaseRoot', root], {encoding: 'utf8', timeout: 60_000, windowsHide: true});
+    '-Mode', 'Verify', '-ReleaseRoot', root, ...(workerRoleSid === null ? [] : ['-WorkerRoleSid', workerRoleSid])],
+  {encoding: 'utf8', timeout: 60_000, windowsHide: true});
   assert(!result.error && result.status === 0 && !result.signal,
     'NTFS generation seal not proven: ' + (result.error || result.stderr || 'missing success status'));
   // Receipts are returned by a fresh verifier subprocess, never supplied by
@@ -52,6 +53,7 @@ function assertSealed(root) {
   assert.equal(proof.schema, SEAL_SCHEMA, 'unexpected NTFS verifier');
   assert.equal(proof.immutable, true, 'NTFS verifier did not attest immutability');
   assert.equal(proof.principal, 'current-process', 'NTFS verifier checked a different principal');
+  assert.equal(proof.workerRoleSid ?? null, workerRoleSid, 'NTFS verifier checked a different worker role');
   assert.equal(canonical(proof.root), root, 'NTFS verifier did not check this root');
   assert.match(proof.sid, /^S-1-(?:\d+-)*\d+$/);
   assert.match(proof.integritySid, /^S-1-16-\d+$/);
@@ -167,6 +169,9 @@ function render({publicRoot, generations, scope = 'vite'}) {
 
   for (let index = 0; index < generations.length; index++) {
     const pin = generations[index];
+    const role = pin.workerRoleSid ?? null;
+    if (role !== null) assert.match(role, /^S-1-5-21(?:-[1-9][0-9]{0,9}){3}-[1-9][0-9]{3,9}$/, 'invalid worker role SID');
+    assert.equal(role, generations[0].workerRoleSid ?? null, 'mixed worker roles in one HTTP mapping');
     const root = canonical(pin.generation);
     const sealRoot = canonical(pin.sealRoot);
     assert(within(sealRoot, root) && sealRoot !== root && apart(publicDir, sealRoot),
@@ -174,9 +179,9 @@ function render({publicRoot, generations, scope = 'vite'}) {
     assert(!receipts.some(receipt => receipt.generation === root), 'generation repeated');
     // Hash and decompress only once (before publication of the include).
     // Check effective storage rights on both sides of the integrity read.
-    const before = assertSealed(sealRoot);
+    const before = assertSealed(sealRoot, role);
     const verified = verify({generation: root, expectedDigest: pin.expectedDigest});
-    const after = assertSealed(sealRoot);
+    const after = assertSealed(sealRoot, role);
     assert.equal(before.sid, after.sid, 'NTFS proof principal changed during integrity validation');
     assert.equal(before.integritySid, after.integritySid, 'NTFS proof integrity level changed during validation');
     assert.deepEqual(before.inventory, after.inventory, 'protected inventory changed during integrity validation');
@@ -190,7 +195,8 @@ function render({publicRoot, generations, scope = 'vite'}) {
     assert(vouched.has(relative), 'generation directory is absent from the NTFS seal inventory');
     const directory = apachePath(root);
     receipts.push({generation: root, sealRoot, manifestSha256: verified.manifestSha256,
-      viteManifestSha256: verified.viteManifestSha256, sealSid: after.sid, sealIntegritySid: after.integritySid});
+      viteManifestSha256: verified.viteManifestSha256, sealSid: after.sid, sealIntegritySid: after.integritySid,
+      ...(role === null ? {} : {workerRoleSid: role})});
     directives.push('# Generation ' + pin.expectedDigest);
 
     const entries = [];

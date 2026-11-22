@@ -2,7 +2,8 @@
 param(
     [Parameter(Mandatory)][ValidateSet('Init', 'Seal', 'Verify')][string] $Mode,
     [Parameter(Mandatory)][string] $ReleaseRoot,
-    [ValidateRange(0, 2147483647)][int] $ApachePid = 0
+    [ValidateRange(0, 2147483647)][int] $ApachePid = 0,
+    [string] $WorkerRoleSid
 )
 
 $ErrorActionPreference = 'Stop'
@@ -14,6 +15,9 @@ if ($env:OS -ne 'Windows_NT' -or $ReleaseRoot -cnotmatch '^C:\\Gramlyze\.PERF29\
     throw 'An absolute, unique C:\Gramlyze.PERF29.<16–64 lowercase hex> vault is required.'
 }
 if ($ApachePid -and $Mode -ne 'Verify') { throw 'ApachePid is available only with Verify.' }
+if ($WorkerRoleSid -and $WorkerRoleSid -cnotmatch '^S-1-5-21(?:-[1-9][0-9]{0,9}){3}-[1-9][0-9]{3,9}\z') {
+    throw 'WorkerRoleSid must be a dedicated synthetic account-form SID.'
+}
 
 Add-Type -TypeDefinition @'
 using System;
@@ -92,15 +96,14 @@ namespace Gramlyze.Perf29 {
             } finally { Marshal.FreeHGlobal(data); }
         }
         private static string Sid(IntPtr data) { return new SecurityIdentifier(Marshal.ReadIntPtr(data)).Value; }
-        private static bool HasTrustedGroupEnabled(IntPtr data) {
+        private static KeyValuePair<string,int>[] TokenGroups(IntPtr data) {
+            var groups = new List<KeyValuePair<string,int>>();
             int count = Marshal.ReadInt32(data);
             for (int i = 0; i < count; i++) {
                 IntPtr entry = IntPtr.Add(data, IntPtr.Size + i * 2 * IntPtr.Size);
-                string sid = Sid(entry);
-                int attributes = Marshal.ReadInt32(entry, IntPtr.Size);
-                if ((attributes & 4) != 0 && (sid == "S-1-5-32-544" || sid == "S-1-5-18")) return true;
+                groups.Add(new KeyValuePair<string,int>(Sid(entry), Marshal.ReadInt32(entry, IntPtr.Size)));
             }
-            return false;
+            return groups.ToArray();
         }
         private static string[] PrivilegeNames(IntPtr data) {
             var names = new List<string>();
@@ -116,7 +119,8 @@ namespace Gramlyze.Perf29 {
         public sealed class Token {
             public string Sid, IntegritySid;
             public bool Elevated, TrustedGroupEnabled;
-            public string[] Privileges;
+            public string[] Privileges, GroupSids, RestrictingSids;
+            public string Administrators;
         }
         private static Token ReadToken(IntPtr process) {
             SafeAccessTokenHandle token;
@@ -124,12 +128,25 @@ namespace Gramlyze.Perf29 {
             using (token) return ReadToken(token);
         }
         private static Token ReadToken(SafeAccessTokenHandle token) {
-            return new Token {
+            var result = new Token {
                 Sid = Get(token, 1, Sid), IntegritySid = Get(token, 25, Sid),
                 Elevated = Get(token, 20, p => Marshal.ReadInt32(p) != 0),
-                TrustedGroupEnabled = Get(token, 2, HasTrustedGroupEnabled),
-                Privileges = Get(token, 3, PrivilegeNames)
+                Privileges = Get(token, 3, PrivilegeNames), Administrators = "absent"
             };
+            var normalGroups = new List<string>();
+            foreach (var group in Get(token, 2, TokenGroups)) {
+                normalGroups.Add(group.Key);
+                if ((group.Value & 4) != 0 && (group.Key == "S-1-5-32-544" || group.Key == "S-1-5-18"))
+                    result.TrustedGroupEnabled = true;
+                if (group.Key == "S-1-5-32-544")
+                    result.Administrators = (group.Value & 4) != 0 ? "enabled" :
+                        (group.Value & 0x10) != 0 ? "deny-only" : "disabled";
+            }
+            result.GroupSids = normalGroups.ToArray();
+            var restrictions = new List<string>();
+            foreach (var group in Get(token, 11, TokenGroups)) restrictions.Add(group.Key);
+            result.RestrictingSids = restrictions.ToArray();
+            return result;
         }
         public static Token ReadToken(int pid) {
             if (pid == 0) return ReadToken(GetCurrentProcess());
@@ -205,12 +222,38 @@ function Get-Descriptor([string] $Path) {
 $token = [Gramlyze.Perf29.Ntfs]::ReadToken(0)
 Assert-FilteredToken $token 'Publisher process'
 $sid = $token.Sid
+if ($WorkerRoleSid) {
+    $role = [Security.Principal.SecurityIdentifier]::new($WorkerRoleSid)
+    $publisher = [Security.Principal.SecurityIdentifier]::new($sid)
+    if ($null -eq $role.AccountDomainSid -or $null -eq $publisher.AccountDomainSid -or
+        $role.AccountDomainSid.Value -eq $publisher.AccountDomainSid.Value -or
+        $token.RestrictingSids.Length -ne 0) {
+        throw 'Role must be outside the publisher account namespace and publication requires an unrestricted publisher.'
+    }
+    try {
+        [void]$role.Translate([Security.Principal.NTAccount])
+        throw 'Worker role resolved to an account; a restricting-only SID is required.'
+    } catch [Security.Principal.IdentityNotMappedException] { }
+}
+
+function Assert-ApacheToken($ApacheToken) {
+    Assert-FilteredToken $ApacheToken "Apache PID $ApachePid"
+    if ($ApacheToken.Sid -ne $sid) { throw 'Apache has a different user SID from the verified read-only principal.' }
+    if ($WorkerRoleSid) {
+        $extraPrivileges = @($ApacheToken.Privileges | Where-Object { $_ -ne 'SeChangeNotifyPrivilege' })
+        if ($ApacheToken.RestrictingSids.Length -ne 1 -or
+            $ApacheToken.RestrictingSids[0] -cne $WorkerRoleSid -or $extraPrivileges.Count -ne 0 -or
+            $WorkerRoleSid -cin $ApacheToken.GroupSids -or $ApacheToken.Administrators -notin @('deny-only', 'absent')) {
+            throw 'Apache does not have the pinned restricting-only role and least-privilege token.'
+        }
+    }
+}
+
 $apacheToken = $null
 if ($ApachePid) {
     if ((Get-Process -Id $ApachePid).ProcessName -ne 'httpd') { throw 'The supplied PID is not Apache httpd.' }
     $apacheToken = [Gramlyze.Perf29.Ntfs]::ReadToken($ApachePid)
-    Assert-FilteredToken $apacheToken "Apache PID $ApachePid"
-    if ($apacheToken.Sid -ne $sid) { throw 'Apache has a different user SID from the verified read-only principal.' }
+    Assert-ApacheToken $apacheToken
 }
 
 $drive = [IO.DriveInfo]::new('C:\')
@@ -246,13 +289,31 @@ if (-not $items[-1].PSIsContainer -or $items.Count -le 1) { throw 'Vault must co
 $ownerRights = 'S-1-3-4'
 $expected = @{ $ownerRights = 0x20000; $sid = 0x1200a9; 'S-1-5-18' = 0x1f01ff; 'S-1-5-32-544' = 0x1f01ff }
 
+function Is-WorkerReadable($Item) {
+    if ($Item.PSIsContainer) { return $true }
+    # Grant the restricting role only the two delivery layouts. Build/release
+    # manifests and any operator-only fixture files get no role ACE.
+    $relative = $Item.FullName.Substring($ReleaseRoot.Length + 1).Replace('\', '/')
+    if ($relative -cnotmatch '(?:^|/)gen-[0-9a-f]{32}/(identity|gzip)/(.+)\z') { return $false }
+    $kind = $Matches[1]
+    $asset = $Matches[2]
+    if ($kind -ceq 'gzip') {
+        if (-not $asset.EndsWith('.gz', [StringComparison]::Ordinal)) { return $false }
+        $asset = $asset.Substring(0, $asset.Length - 3)
+    }
+    return $asset -cmatch '^(?:build/assets/[A-Za-z0-9_.-]+\.(?:css|m?js)|js/[A-Za-z0-9_.-]+\.js|[A-Za-z0-9_.-]+\.svg)\z'
+}
+
 if ($Mode -eq 'Seal') {
     foreach ($item in $items) {
         if ((Get-Descriptor $item.FullName).Owner.Value -ne $sid) { throw "Unexpected owner, refusing to seal: $($item.FullName)" }
     }
     # OWNER RIGHTS limits the owner's implicit WRITE_DAC; inherited ACEs are removed.
-    $dacl = "D:P(A;;RC;;;$ownerRights)(A;;0x1200a9;;;$sid)(A;;FA;;;SY)(A;;FA;;;BA)"
+    $baseDacl = "D:P(A;;RC;;;$ownerRights)(A;;0x1200a9;;;$sid)(A;;FA;;;SY)(A;;FA;;;BA)"
     foreach ($item in $items) {
+        $dacl = if ($WorkerRoleSid -and (Is-WorkerReadable $item)) {
+            $baseDacl + "(A;;0x1200a9;;;$WorkerRoleSid)"
+        } else { $baseDacl }
         $acl = Get-Acl -LiteralPath $item.FullName
         $acl.SetSecurityDescriptorSddlForm($dacl, [Security.AccessControl.AccessControlSections]::Access)
         Set-Acl -LiteralPath $item.FullName -AclObject $acl
@@ -265,16 +326,21 @@ $apacheAccess = if ($ApachePid) { [Gramlyze.Perf29.Ntfs+ProcessAccess]::new($Apa
 try {
     if ($apacheAccess) {
         $apacheToken = $apacheAccess.PrimaryToken
-        Assert-FilteredToken $apacheToken "Apache PID $ApachePid during DACL check"
-        if ($apacheToken.Sid -ne $sid) { throw 'Apache token SID changed before its DACL check.' }
+        Assert-ApacheToken $apacheToken
         Assert-AccessDenied 'C:\' @(0x2, 0x10, 0x40, 0x100, 0x10000, 0x40000, 0x80000) $apacheAccess
     }
     $inventory = foreach ($item in $items) {
         $path = $item.FullName
         $acl = Get-Descriptor $path
+        $itemExpected = $expected
+        $roleReadable = [bool]($WorkerRoleSid -and (Is-WorkerReadable $item))
+        if ($roleReadable) {
+            $itemExpected = $expected.Clone()
+            $itemExpected[$WorkerRoleSid] = 0x1200a9
+        }
         if ($acl.Owner.Value -ne $sid -or
             -not ($acl.ControlFlags -band [Security.AccessControl.ControlFlags]::DiscretionaryAclProtected) -or
-            $null -eq $acl.DiscretionaryAcl -or $acl.DiscretionaryAcl.Count -ne $expected.Count) {
+            $null -eq $acl.DiscretionaryAcl -or $acl.DiscretionaryAcl.Count -ne $itemExpected.Count) {
             throw "Owner or protected DACL mismatch: $path"
         }
         $seen = @{}
@@ -283,16 +349,19 @@ try {
                 $ace.AceType -ne [Security.AccessControl.AceType]::AccessAllowed -or
                 $ace.AceFlags -ne [Security.AccessControl.AceFlags]::None) { throw "Unexpected access rule: $path" }
             $ruleSid = $ace.SecurityIdentifier.Value
-            if ($seen.ContainsKey($ruleSid) -or -not $expected.ContainsKey($ruleSid) -or
-                $ace.AccessMask -ne $expected[$ruleSid]) { throw "Unexpected access mask: $path" }
+            if ($seen.ContainsKey($ruleSid) -or -not $itemExpected.ContainsKey($ruleSid) -or
+                $ace.AccessMask -ne $itemExpected[$ruleSid]) { throw "Unexpected access mask: $path" }
             $seen[$ruleSid] = $true
         }
         $accesses = @(0x2, 0x4, 0x10, 0x100, 0x10000, 0x40000, 0x80000)
         if ($item.PSIsContainer) { $accesses += 0x40 }
         Assert-AccessDenied $path $accesses $apacheAccess
         if ([Gramlyze.Perf29.Ntfs]::TryOpen($path, 1) -ne 0) { throw "Read/list open failed: $path" }
-        if ($apacheAccess -and -not $apacheAccess.Allows((Get-Acl -LiteralPath $path).GetSecurityDescriptorBinaryForm(), 1)) {
-            throw "Apache DACL does not grant read/list access: $path"
+        if ($apacheAccess) {
+            $expectedRead = -not $WorkerRoleSid -or $roleReadable
+            if ($apacheAccess.Allows((Get-Acl -LiteralPath $path).GetSecurityDescriptorBinaryForm(), 1) -ne $expectedRead) {
+                throw "Apache DACL does not match expected read/list access: $path"
+            }
         }
         [ordered]@{
             path = if ($path -eq $ReleaseRoot) { '.' } else { $path.Substring($ReleaseRoot.Length + 1).Replace('\', '/') }
@@ -308,4 +377,8 @@ try {
     principal = 'current-process'; immutable = $true; inventory = @($inventory)
     apachePid = if ($ApachePid) { $ApachePid } else { $null }
     apacheIntegritySid = if ($apacheToken) { $apacheToken.IntegritySid } else { $null }
+    workerRoleSid = if ($WorkerRoleSid) { $WorkerRoleSid } else { $null }
+    apacheAdministrators = if ($apacheToken) { $apacheToken.Administrators } else { $null }
+    apachePrivileges = if ($apacheToken) { ,$apacheToken.Privileges } else { $null }
+    apacheRestrictingSids = if ($apacheToken) { ,$apacheToken.RestrictingSids } else { $null }
 } | ConvertTo-Json -Compress -Depth 4

@@ -2,7 +2,8 @@
 param(
     [Parameter(Mandatory)][string] $SealedRoot,
     [string] $UnsealedRoot,
-    [ValidateRange(0, 2147483647)][int] $ApachePid = 0
+    [ValidateRange(0, 2147483647)][int] $ApachePid = 0,
+    [string] $WorkerRoleSid
 )
 
 $ErrorActionPreference = 'Stop'
@@ -21,11 +22,26 @@ Assert-Fails { & $seal -Mode Verify -ReleaseRoot $PSScriptRoot } 'unique.*vault'
 if ($UnsealedRoot) {
     Assert-Fails { & $seal -Mode Verify -ReleaseRoot $UnsealedRoot } 'protected DACL mismatch'
 }
-$proof = & $seal -Mode Verify -ReleaseRoot $SealedRoot -ApachePid $ApachePid | ConvertFrom-Json
+$argsForProof = @{ Mode = 'Verify'; ReleaseRoot = $SealedRoot; ApachePid = $ApachePid }
+if ($WorkerRoleSid) {
+    Assert-Fails { & $seal -Mode Verify -ReleaseRoot $SealedRoot } 'protected DACL mismatch'
+    Assert-Fails { & $seal -Mode Verify -ReleaseRoot $SealedRoot -WorkerRoleSid 'S-1-5-32-544' } 'dedicated synthetic'
+    if ($ApachePid) {
+        $wrongRole = if ($WorkerRoleSid.EndsWith('-30001')) { '30002' } else { '30001' }
+        $wrongSid = $WorkerRoleSid -replace '-[0-9]+$', ('-' + $wrongRole)
+        Assert-Fails { & $seal -Mode Verify -ReleaseRoot $SealedRoot -WorkerRoleSid $wrongSid -ApachePid $ApachePid } 'pinned restricting-only role'
+    }
+    $argsForProof.WorkerRoleSid = $WorkerRoleSid
+}
+$proof = & $seal @argsForProof | ConvertFrom-Json
 if ($proof.schema -ne 'gramlyze.ntfs-seal/v1' -or -not $proof.immutable -or $proof.root -ne $SealedRoot -or
     1 -ne @($proof.inventory | Where-Object { $_.path -eq '.' -and $_.type -eq 'directory' }).Count -or
     0 -eq @($proof.inventory | Where-Object { $_.type -eq 'file' }).Count) {
     throw 'Unexpected sealed-vault verification result.'
+}
+if ($WorkerRoleSid -and ($proof.workerRoleSid -cne $WorkerRoleSid -or
+    ($ApachePid -and ($proof.apacheRestrictingSids.Count -ne 1 -or $proof.apacheRestrictingSids[0] -cne $WorkerRoleSid)))) {
+    throw 'The proof did not bind the pinned role to the requested Apache worker.'
 }
 
 # Exercise the same native DACL check that Verify uses for actual Apache, with
@@ -45,5 +61,6 @@ try {
 [ordered]@{
     status = 'PASS'; readOnly = $true; entries = $proof.inventory.Count
     apachePid = $proof.apachePid; apacheIntegritySid = $proof.apacheIntegritySid
+    workerRoleSid = $proof.workerRoleSid
     testedUnsealedRoot = [bool]$UnsealedRoot
 } | ConvertTo-Json -Compress
