@@ -97,7 +97,9 @@ foreach (explode(';', (string)($_SERVER['HTTP_COOKIE'] ?? '')) as $pair) {
         continue;
     }
     $name = trim(explode('=', $pair, 2)[0]);
-    if (!in_array($name, [$cookie, 'XSRF-TOKEN'], true)) {
+    // The private Laravel context itself issues `locale` after navigation.
+    // Keep it for subsequent browser requests while rejecting live session names.
+    if (!in_array($name, [$cookie, 'XSRF-TOKEN', 'locale'], true)) {
         perf31Error(403, 'non-shadow cookie rejected');
         return;
     }
@@ -140,6 +142,7 @@ if ($state) {
 $scratch = (string)getenv('PERF31_SCRATCH', true);
 $source = (string)getenv('PERF31_SOURCE', true);
 $locales = (string)getenv('PERF31_LOCALES', true);
+$nativeProbe = getenv('PERF31_NATIVE_PROBE', true) === '1';
 $id = bin2hex(random_bytes(12));
 $begun = hrtime(true);
 $cpuBefore = perf31CpuUs();
@@ -185,6 +188,12 @@ try {
     }
     perf31Check(chdir("$source/public"), 'app-chdir');
     define('LARAVEL_START', microtime(true));
+    if ($nativeProbe) {
+        $probePath = __DIR__.'/ubuntu-native-source-probe.php';
+        perf31Check(perf31Physical($probePath) && is_file($probePath), 'unverified-native-probe');
+        require_once $probePath;
+        App\Support\Perf31NativeSourceProbe::enable($source);
+    }
     require "$source/vendor/autoload.php";
     $app = require "$source/bootstrap/app.php";
     perf31Check($app->basePath() === $source, 'unexpected-application-root');
@@ -299,6 +308,7 @@ try {
     $bootEnd = hrtime(true);
     $memoryBefore = memory_get_usage(true);
     memory_reset_peak_usage();
+    $memoBefore = $nativeProbe ? App\Support\Perf31NativeSourceProbe::memoKeys($request) : null;
     $response = $kernel->handle($request);
     $kernelEnd = hrtime(true);
     // Terminate while the DB guard is still active, before recording/sending a PASS.
@@ -318,6 +328,13 @@ try {
         'cpuUs' => $cpuBefore !== null && $cpuAfter !== null ? $cpuAfter - $cpuBefore : null,
         'memoryBefore' => $memoryBefore, 'peakBytes' => $peak, 'decodedBodyBytes' => is_string($body) ? strlen($body) : null,
     ];
+    if ($nativeProbe) {
+        $outcome['nativeProbe'] = App\Support\Perf31NativeSourceProbe::snapshot() + [
+            'memoBefore' => $memoBefore,
+            'memoAfter' => App\Support\Perf31NativeSourceProbe::memoKeys($request),
+            'comparativeTimingEligible' => false,
+        ];
+    }
     $stage = 'finish-receipt';
     perf31Receipt($scratch, $id, 'finish', $outcome);
     $response->headers->set('X-Gramlyze-Perf31-Isolated', $nonce);

@@ -20,7 +20,7 @@ const HOST = 'gramlyze.ub';
 const IP = '127.0.0.1';
 const HEX = /^[a-f0-9]{64}$/;
 const VITE = /^\/build\/assets\/[A-Za-z0-9][A-Za-z0-9_.-]{0,159}-[A-Za-z0-9_-]{8,32}\.(?:css|m?js)$/;
-const COOKIE_NAME = /^perf31_[a-z0-9_]{4,48}$/;
+const COOKIE_NAME = /^perf31_(?:[abc]|[a-z0-9_]{4,48})$/;
 const COOKIE_VALUE = /^[A-Za-z0-9._~+/%=-]{16,2048}$/;
 const DYNAMIC = new Set(['/', '/en', '/pl',
     '/test/present-simple/forms', '/test/past-simple/forms', '/test/past-perfect/forms',

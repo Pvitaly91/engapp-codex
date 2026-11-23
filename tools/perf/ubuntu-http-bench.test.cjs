@@ -63,6 +63,17 @@ test('arbitrary request URLs, mixed transport, unsafe plans and cookies fail clo
     assert.throws(()=>schedule({...validatePlan(abc()),rounds:30}),/TOO_MANY_REQUESTS/);
 });
 
+test('repeat accepts the three exact shadow cookie names without permitting ordinary session cookies',()=>{
+    const targets={A:{port:18081,sessionCookie:'perf31_a'},B:{port:18082,sessionCookie:'perf31_b'},
+        C:{port:18083,sessionCookie:'perf31_c',staticEncoding:'gzip'}};
+    const plan=abc({targets,paths:[dynamic],parallelism:[1],profile:'repeat'});
+    assert.equal(validatePlan(plan).targets.C.sessionCookie,'perf31_c');
+    assert.throws(()=>validatePlan({...plan,targets:{...targets,A:{...targets.A,sessionCookie:'laravel_session'}}}),
+        /NOT_A_PRIVATE_BENCH_COOKIE/);
+    assert.throws(()=>validatePlan({...plan,targets:{...targets,A:{...targets.A,sessionCookie:'perf31_x'}}}),
+        /NOT_A_PRIVATE_BENCH_COOKIE/);
+});
+
 test('native bytes and MIME must match the gzip and decoded pins; identity fallback remains distinct',()=>{
     function raw(body,header={}) {
         return {body,headers:{'content-length':String(body.length),'content-type':'text/css',...header}};
